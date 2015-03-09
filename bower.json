@@ -1,0 +1,16 @@
+{
+  "name": "StagePass",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Luekerc/StagePass",
+  "authors": [
+    "Charles Lueker <charleslueker@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
