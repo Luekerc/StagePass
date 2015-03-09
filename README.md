@@ -1,9 +1,9 @@
 # StagePass
 ##Experience the music scene from the inside by hosting band practice.
 
-Do more than just support local music, be a *_part_* of it. Participate and make new friends (meet chicks or future rock stars...or BOTH!) by sharing any unused space you have like a garage, a barn or a basement with a band who needs a place to practice. Musicians need a place to collaborate and _you_ can offer that missing peice.  Even if you know nothing about music, this is your door into that world you've always wanted to be a part of.  Be the fifth Beatle.
+Do more than just support local music, be a *_part_* of it. Participate and make new friends (meet chicks or future rock stars...or BOTH!) by sharing any unused space you have like a garage, a barn or a basement with a band who needs a place to practice. Musicians need a place to collaborate and _you_ can offer that missing piece.  Even if you know nothing about music, this is your door into that world you've always wanted to be a part of.  Be the fifth Beatle.
 
-If you have a space you'd like to share, you can become a Space Master by filling out your profile at www.StagePass.com.  The registration form will ask you a little bit about your place like where it is, what kind and how big.  Bands will have to follow any rules you set out before hand: no smoking indoors, band members only, etc... If they break the rules, you can tell them not to come back and then write a review about them on their band profile page.
+If you have a space you'd like to share, you can become a Space Master by filling out your profile at the StagePass website.  The registration form will ask you a little bit about your place like where it is, what kind and how big.  Bands will have to follow any rules you set out before hand: no smoking indoors, band members only, etc... If they break the rules, you can tell them not to come back and then write a review about them on their band profile page.
 
 Most people in bands are pretty cool (like duh!) so this is an opportunity to make some new friends.  Depending on what kind of arrangements you work out, you might find yourself backstage at the next big concert.  At the very least, you can always reserve some bragging rights about and talk about how you knew them "when".  Take the credit you deserve!
 
