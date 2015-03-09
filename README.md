@@ -1,158 +1,63 @@
-# Full stack javascript Sails template
+# StagePass
+##Experience the music scene from the inside by hosting band practice.
 
-![overview diagram](/development-heroku.jpg)
+Do more than just support local music, be a *_part_* of it. Participate and make new friends (meet chicks or future rock stars...or BOTH!) by sharing any unused space you have like a garage, a barn or a basement with a band who needs a place to practice. Musicians need a place to collaborate and _you_ can offer that missing piece.  Even if you know nothing about music, this is your door into that world of which you've always wanted to be a part. 
 
-## Setup
+If you have a space you'd like to share, you can become a Space Master by filling out your profile at the StagePass website.  The registration form will ask you a little bit about your place like where it is, what kind and how big.  Bands are generally friendly people and be happy to follow any rules you set out before hand: no smoking indoors, band members only, etc... However, in the rare instance you do find a bad apple you can tell them to go pound sand and then write a review about them on their band profile page.
 
-### 1. Install all of the necessary software
+Most people in bands are pretty cool (like duh!) so this is an excellent opportunity to make some new friends.  Depending on what kind of arrangements you work out, you might find yourself backstage at the next big concert.  At the very least, you can always reserve some bragging rights about how you knew them "when". 
 
-> You will only ever need to do these steps once.
+##User Stories
+Here's the link to my Trello user story page.  [StagePass](https://trello.com/b/ChH0vNBb/final-project-stagepass)
 
-1. From your terminal (any directory is fine) run `brew update`
-2. If you haven't already installed node, do it now.
-	1. Run `brew install node`
-3. If you haven't already installed postgres, do it now.
-	1. Run `brew install postgresql`
-	2. Then run `ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents`
-	3. Then run `launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
-4. Install sails `npm install -g sails forever grunt-cli`
-5. Create a free account on Heroku. Be sure to pick node.js as your development language.
-	* [Heroku sign up](https://signup.heroku.com/dc)
-6. Go to [this link](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
-7. Download and install the Heroku Toolbelt for Mac OS X
+##Wireframe
+[Here](https://github.com/Luekerc/StagePass/issues/1) in the GitHub Issues page
 
-### 2. Set up your local development environment
+##Models
+There are two models in this website: Band and Space Master. 
+``` 
+Band: {
+	name: "",
+	pic: "",
+	genre: "",[rock, country, heavy metal, pop]
+	number: ,
+	average age: ,
+	open practice: y/n,
+	city:"",
+	website: "",
+	agree to terms of use: y/n,
+	contact info: ""
+}
 
-> You will need to do all of these steps once for each new project.
+Space Master:{
+	name: "",
+	preferred genres: "",[rock, country, heavy metal, pop]
+	open practice: booelan, (defined as  guests other than band members allowed)
+	city: "",
+	space type: "", [garage, bedroom, basement, barn, shed]
+	alcohol ok?: y/n,
+	smoking? y/n,
+	storage ok?: y/n,
+	loading issues: {
+			stairs: y/n,
+			drive up?: y/n,
+			Entrance type:{
+					garage door
+					house door
+					barn door
+					sliding glass
+					chimney
+				}
+		}
+	pictures: img,
+	agree to terms of use?: y/n
+}
+```
+## API's, Plugins, Libraries and Frameworks
+        *Sails
+        *Bower
+        *Angular
+        *Javascript
+        *JQuery
+        *Google Maps API (optional) 
 
-1. Create a postgres database for your new application: `createdb appdb`
-2. Create a postgres user for your new application: `createuser postgres`
-3. Fork and then clone this repo from GitHub.
-4. Run `npm install` to install the back-end dependencies.
-5. Run `bower install` to install the front-end dependencies. 
-6. To run your sails server type `forever -w start app.js`. This will restart the server any time there is a change to one of the server files.
-	1. To stop the sails server type `forever stop app.js`
-7. I recommend keeping the server output log open in its own terminal window: `forever logs app.js -f`
-	1. To stop watching the log type `ctrl+c`
-8. Open http://localhost:1337 in Chrome to make sure that the app is running properly
-
-### 3. Set up your production environment
-
-> You will need to do all of these steps once for each new project.
-
-1. On the command line make sure that you are inside of your project directory and your project has a github repo (aka you have typed `git init` or cloned it from GitHub)
-2. Run the command `heroku create` to create a new app on heroku. You may have to enter your heroku username and password.
-3. Run `heroku addons:add heroku-postgresql` to create a database on heroku for your app.
-4. Run `heroku config:set NODE_ENV=heroku` to set the environment variable to heroku. This will cause the heroku server to use a slightly different server configuration.
-
-### 4. Deploy to production
-
-> You will need to do these steps each time you have changes on your development environment that you want to deploy to production (aka heroku).
-
-1. `git add .` and `git commit -m "message"`. Be sure to include all of the .tmp files in your commit.
-4. Run `git push heroku master`. This will update your production server with all of the code you just committed.
-5. This is usually a good time to push to github too: `git push origin master`
-
-### 5. Shutting down your dev environment
-
-> Sails can slow down your computer, so when you're not doing dev work you'll want to shut downt he server.
-
-1. Run `foerver stopall`.
-2. Type `ctrl+c` to quit out of any running logs.
-
-## Authentication API
-
-Built into this template is user authentication. Below are the api endpoints that are available to you:
-
-**/auth/local/register**
-
-Registers a new user in your app.
-
-Method: POST
-
-Parameters:
-
- - username: string, required
- - email: string, required (must be a valid email address)
- - password: string, required (length greater than or equal to 8 characters)
-
-Returns an object with the following properties on success:
-
- - redirect: string - the path where the user would be redirected had they logged in via a regular form.
- - user: object - contains the newly registered user if registration was successfull.
-
-Returns an object with the following properties on failure:
-
- - error: string - the error code that caused the failure.
- - status: integer - the HTTP status code.
- - summary: string - a message describing the error.
-
-*Will return an error if the user is logged in. Only logged out users can register.*
-
-- - -
-
-**/auth/local**
-
-Validates a users credentials and logs them in if they are correct.
-
-Method: POST
-
-Parameters:
-
- - identifier: string, required
- - password: string, required
-
-Returns an object with the following properties on success:
-
- - redirect: string - the path where the user would be redirected had they logged in via a regular form.
- - user: object - contains the newly registered user if registration was successfull.
-
-Returns an object with the following properties on failure:
-
- - error: string - the error code that caused the failure.
- - status: integer - the HTTP status code.
- - summary: string - a message describing the error.
-
-- - - 
-
-**/auth/user**
-
-Gets the currently logged in user.
-
-Method: GET
-
-Parameters: *none*
-
-Returns an object with the following properties if the user is logged in:
-	
- - username: string - The currently logged in user's username.
- - email: string - The currently logged in user's email.
- - id: integer - The currently logged in user's id.
- - createdAt: datetime - The date and time the user was created.
- - updatedAt: datetime - The date and time the user was last updated.
-
-Returns an object with the following properties if the user is not logged in:
-
- - error: string - the error code that caused the failure.
- - status: integer - the HTTP status code.
- - summary: string - a message describing the error.
-
-- - - 
-
-**/logout**
-
-Logs a user out.
-
-Method: GET / POST
-
-Parameters: *none*
-
-Returns an object with the following properties:
-
- - success: boolean - true if the user was successfully logged out, else false.
-
-Returns an object with the following properties if an error is encountered:
-
- - error: string - the error code that caused the failure.
- - status: integer - the HTTP status code.
- - summary: string - a message describing the error.
