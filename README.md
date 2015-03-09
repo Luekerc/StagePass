@@ -11,7 +11,7 @@ Most people in bands are pretty cool (like duh!) so this is an excellent opportu
 Here's the link to my Trello user story page.  [StagePass](https://trello.com/b/ChH0vNBb/final-project-stagepass)
 
 ##Wireframe
-As attached
+[Here](https://github.com/Luekerc/StagePass/issues/1) in the GitHub Issues page
 
 ##Models
 There are two models in this website: Band and Space Master.  
