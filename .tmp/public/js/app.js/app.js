@@ -5,7 +5,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 
 	$stateProvider
 	.state('home', {
-		url: '/',
+		url: '/home',
 		templateUrl: 'templates/home.html',
 		controller: 'HomeCtrl'
 	})
@@ -28,6 +28,11 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		url: '/user/band',
 		templateUrl: 'templates/band.html',
 		controller: 'BandCtrl'
+	})
+		.state('logout', {
+		url: '/',
+		templateUrl: '../views/homepage.ejs',
+		controller: 'LogoutCtrl'
 	})
 
 	$urlRouterProvider.otherwise('/');

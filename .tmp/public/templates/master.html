@@ -1,13 +1,12 @@
 <a type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a>
 <div class="shared-space">
-<div ng-hide="true">Thanks for sharing your space.<br>You totally rule!</div>
+<div ng-hide="false">Thanks for sharing your space.<br>You totally rule!</div>
 </div>
-<a type="button" href="#" ui-sref-active="active" ui-sref="spaceregister"><span>Register</span></a>
-<br>
-<a type="button" href="#" ><span>List your space!</span></a>
+
+<a type="button" href="#" ui-sref-active="active" ui-sref="spaceregister" ng-hide="false"><span>List your space!</span></a>
 <br>
 
-<section class="user-form" ng-hide="true">
+<section class="user-form" >
 	<h3>Tell us about your space.</h3>
 	<form class="form" ng-submit="list" novalidate>
 		City<br>
@@ -49,8 +48,8 @@
 		</form>
 		<button type="submit">Submit</button>
 	</form>
-	<br>
-		<a type="button" href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a>
+
+	
 </section>
 <!-- name: "",
 	preferred genres: "",[rock, country, heavy metal, pop]

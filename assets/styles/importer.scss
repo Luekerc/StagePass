@@ -28,7 +28,6 @@
 // @import 'pages/signup.scss';
 //
 // etc.
+// @import '../bower_components/normalize.css/normalize.css';
 
-.test {
-	color: blue;
-}
+@import 'landing';

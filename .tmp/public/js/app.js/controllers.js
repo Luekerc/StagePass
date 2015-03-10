@@ -12,6 +12,9 @@ angular.module('app.controllers', ['app.services'])
 .controller('MasterCtrl', function() {
 
 })
+.controller('LogoutCtrl', function() {
+
+})
 .controller('BandCtrl', function() {
 
 });

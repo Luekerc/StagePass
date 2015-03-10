@@ -13,7 +13,34 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
-.test {
-  color: blue; }
+nav {
+  text-align: center;
+  background: url(/images/blackground.jpg) no-repeat fixed;
+  color: #FFFFFF;
+  font-family: Lato;
+  padding: 1em 0 1em 0;
+  margin-bottom: 1em; }
+
+nav h2 {
+  font-size: 3em; }
+
+nav h4 {
+  font-size: 1.5em; }
+
+button {
+  height: 4em;
+  margin-bottom: 0.25em;
+  width: 12em;
+  font-size: 1.25em;
+  font-family: Lato;
+  color: white;
+  text-decoration: bold;
+  background: url(/images/amp2.png) no-repeat; }
+
+h2 {
+  font-family: lato; }
+
+#body {
+  background: url(/images/white_texture.png) no-repeat fixed; }
 
 /*# sourceMappingURL=importer.css.map */

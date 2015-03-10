@@ -1,15 +1,20 @@
 <div ng-app="app">
     <nav>
         <section>
-        <h1>StagePass</h1>
+        <h2>StagePass</h2>
         <h4>Don't support your local music scene...be a part of it.</h4>
            <!--  <a href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a> -->
     <!--         <a href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a>
             <a href="#" ui-sref-active="active" ui-sref="register"><span>Register</span></a> -->
         </section>
     </nav>
-    <main ui-view>
-        <a type="button" href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a><br>
-        <a type="button" href="#" ui-sref-active="active" ui-sref="register"><span>Register</span></a>
+    <main  ui-view>
+        
+        <button type="button"  id="home-page" href="#" ui-sref-active="active" ui-sref="login">Space Master Login</button><br>
+        <button type="button" href="#" ui-sref-active="active" ui-sref="band" id="home-page">Bands click here!</button>
+        <br>
+        <h2>Want to list your space?</h2>
+        <button type="button" href="#" ui-sref-active="active" ui-sref="spaceregister" id="home-page">Register</button>
+     
     </main>
 </div>
