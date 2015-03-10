@@ -1,0 +1,17 @@
+<section class="user-form">
+	<a type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a>
+	<div class="avatar"></div>
+	<h1>Register</h1>
+	<form class="form" ng-submit="register(credentials)" novalidate>
+		<label ng-class="error.identifier ? 'error' : ''">
+			<input type="text" placeholder="Email" ng-model="credentials.identifier">
+			<p class="error" ng-bind="error.identifier"></p>
+		</label>
+		<label ng-class="error.password ? 'error' : ''">
+			<input type="password" placeholder="Password" ng-model="credentials.password">
+			<p class="error" ng-bind="error.password"></p>
+		</label>
+		<button type="submit">Submit</button>
+	</form>
+		<a type="button" href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a>
+</section>

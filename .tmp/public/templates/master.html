@@ -1,0 +1,78 @@
+<a type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a>
+<div class="shared-space">
+<div ng-hide="true">Thanks for sharing your space.<br>You totally rule!</div>
+</div>
+<a type="button" href="#" ui-sref-active="active" ui-sref="spaceregister"><span>Register</span></a>
+<br>
+<a type="button" href="#" ><span>List your space!</span></a>
+<br>
+
+<section class="user-form" ng-hide="true">
+	<h3>Tell us about your space.</h3>
+	<form class="form" ng-submit="list" novalidate>
+		City<br>
+		<label ng-class="">
+			<input type="text" placeholder="City" ng-model="city">
+			<p class="error" ng-bind="error.identifier"></p>
+		</label>
+		Type<br>
+		<label ng-class="">
+			<input type="text" placeholder="Barn, garage, etc..." ng-model="type">
+			<p class="error" ng-bind="error.password"></p>
+		</label>
+		Loading Issues<br>
+		<label ng-class="">
+			<input type="text" placeholder="Stairs, rabid dogs, etc..." ng-model="issues">
+			<p class="error" ng-bind="error.password"></p>
+		</label>
+		<div> Check box for yes.</div>
+		Secure for overnight storage?
+		<input type="checkbox"></input>
+		<br>
+		Alcohol OK?
+		<input type="checkbox"></input>
+		<br>
+		Indoor smoking OK?
+		<input type="checkbox"></input>
+		<br>
+		Guests allowed?<br>
+		No
+		<input type="checkbox"></input>
+		Within Reason
+		<input type="checkbox"></input>
+		Hell ya!
+		<input type="checkbox"></input>
+		<br>
+		Upload an image:
+		<form method="get" action="file.doc">
+			<button type="submit">Upload!</button>
+		</form>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+		<a type="button" href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a>
+</section>
+<!-- name: "",
+	preferred genres: "",[rock, country, heavy metal, pop]
+	open practice: booelan, (defined as  guests other than band members allowed)
+	city: "",
+	space type: "", [garage, bedroom, basement, barn, shed]
+	alcohol ok?: y/n,
+	smoking? y/n,
+	storage ok?: y/n,
+	loading issues: {
+			stairs: y/n,
+			drive up?: y/n,
+			Entrance type:{
+					garage door
+					house door
+					barn door
+					sliding glass
+					chimney
+				}
+		}
+	pictures: img,
+	agree to terms of use?: y/n
+}
+
+ -->
