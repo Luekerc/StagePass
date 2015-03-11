@@ -2,8 +2,8 @@ angular.module('app.controllers', ['app.services'])
 .controller('HomeCtrl', function($scope) {
 	
 })
-.controller('SpaceRegisterCtrl', function($scope, Validate) {
-$scope.error = {
+.controller('SpaceRegisterCtrl', function($scope, $state, Validate) {
+	$scope.error = {
 		identifier: '',
 		password: ''
 	};
@@ -21,15 +21,45 @@ $scope.error = {
 				email: credentials.identifier,
 				password: credentials.password
 			};
-			console.log(registerObj);
+				$state.go('master');
 		}
+			console.log(registerObj);
+	
+				
+				
+			
+				console.log('go master');
+		
 	};
 })
 
 .controller('LoginCtrl', function() {
 
 })
-.controller('MasterCtrl', function() {
+.controller('MasterCtrl', function($scope) {
+	$scope.user = {
+		username: '',
+		email: '',
+		firstName: '',
+		lastName: '',
+		address: '',
+		city: '',
+		state: '',
+		zip: '',
+		password: ''
+	};
+
+	$scope.register = function(user) {
+		console.log('register');
+		user.username = user.email;
+		$http.post('/auth/local/register', user)
+		.success(function(data) {
+			console.log(data);
+		})
+		.error(function(err) {
+			console.log(err);
+		});
+	};
 
 })
 // .controller('LogoutCtrl', function() {

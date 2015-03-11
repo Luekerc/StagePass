@@ -1,20 +1,16 @@
-// var Space = {
-//   // Enforce model schema in the case of schemaless databases
-//   schema: true,
-
 //   attributes: {
 //     username  : { type: 'string', unique: true },
 //     email     : { type: 'email',  unique: true },
-//     type : { collection: 'Passport', via: 'user' },
-//     firstName : { type: 'string', required: true },
-//     lastName : { type: 'string', required: true },
-//     address : { type: 'string', required: true },
-//     city : { type: 'string', required: true },
-//     state : { type: 'string', required: true },
-//     zip : { type: 'string', required: true }
+//     city : { collection: 'string', via: 'user' },
+//     type : { type: 'string', required: false},
+//     loading : { type: 'string', required: false },
+//     security : { type: 'string', required: false },
+//     alcohol : { type: 'string', required: false },
+//     smoking : { type: 'string', required: false },
+//     guests : { type: 'string', required: false }
 //   }
 // };
 
-// module.exports = Space;
 
-// 		
+
+		
