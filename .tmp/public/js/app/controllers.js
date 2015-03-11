@@ -32,9 +32,9 @@ $scope.error = {
 .controller('MasterCtrl', function() {
 
 })
-.controller('LogoutCtrl', function() {
+// .controller('LogoutCtrl', function() {
 
-})
+// })
 .controller('BandCtrl', function() {
 
 });
