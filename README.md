@@ -14,7 +14,7 @@ Here's the link to my Trello user story page.  [StagePass](https://trello.com/b/
 [Here](https://github.com/Luekerc/StagePass/issues/1) in the GitHub Issues page
 
 ##Models
-There are two models in this website: Band and Space Master. 
+<!-- There are two models in this website: Band and Space Master. 
 ``` 
 Band: {
 	name: "",
@@ -27,7 +27,7 @@ Band: {
 	website: "",
 	agree to terms of use: y/n,
 	contact info: ""
-}
+} -->
 
 Space Master:{
 	name: "",

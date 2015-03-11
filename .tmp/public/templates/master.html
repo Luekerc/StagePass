@@ -1,57 +1,116 @@
-<a type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a>
+<button type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
 <div class="shared-space">
-<div ng-hide="false">Thanks for sharing your space.<br>You totally rule!</div>
+<br>
+<div ng-show="submitSuccess">Thanks for sharing your space.<br><br>You totally RULE!</div>
 </div>
-
-<a type="button" href="#" ui-sref-active="active" ui-sref="spaceregister" ng-hide="false"><span>List your space!</span></a>
 <br>
 
 <section class="user-form" >
-	<h3>Tell us about your space.</h3>
+	<h3>TELL US ABOUT YOUR SPACE!</h3>
 	<form class="form" ng-submit="list" novalidate>
-		City<br>
+		City
+		<br>
 		<label ng-class="">
-			<input type="text" placeholder="City" ng-model="city">
+			<input type="text" placeholder="Name of city" ng-model="city">
 			<p class="error" ng-bind="error.identifier"></p>
 		</label>
-		Type<br>
+		<br>
+
+		Type of place
+		<br>
 		<label ng-class="">
-			<input type="text" placeholder="Barn, garage, etc..." ng-model="type">
-			<p class="error" ng-bind="error.password"></p>
+			<input list="spacetypes" ng-model="spacetypes" placeholder="What kind of place?">
+            <datalist id="spacetypes">
+                  <option value="Garage">
+                  <option value="Barn">
+                  <option value="Basement">
+                  <option value="Warehouse">
+                  <option value="Attic">
+                  <option value="Living Room">
+               	  <option value="Spare Room">
+                  <option value="Other">
+            </datalist>
+            <p class="error" ng-bind="error.password"></p>
 		</label>
-		Loading Issues<br>
+		<br>
+
+		Loading Issues
+		<br>
 		<label ng-class="">
-			<input type="text" placeholder="Stairs, rabid dogs, etc..." ng-model="issues">
-			<p class="error" ng-bind="error.password"></p>
+			<input list="loading" ng-model="loading" placeholder="Any obstacles?">
+            <datalist id="loading">
+                  <option value="None">
+                  <option value="Locked Gate">
+                  <option value="Stairs">
+                  <option value="Guard Dogs">
+                  <option value="Limited Parking">
+                  <option value="Moat">
+            </datalist>
+            <p class="error" ng-bind="error.password"></p>
 		</label>
-		<div> Check box for yes.</div>
-		Secure for overnight storage?
-		<input type="checkbox"></input>
 		<br>
-		Alcohol OK?
-		<input type="checkbox"></input>
+
+		Secure/Overnight Storage
 		<br>
-		Indoor smoking OK?
-		<input type="checkbox"></input>
+		<label ng-class="">
+			<input list="storage" ng-model="storage" placeholder="Secure/available?">
+            <datalist id="storage">
+                  <option value="Yes">
+                  <option value="No">
+            </datalist>
+            <p class="error" ng-bind="error.password"></p>
+		</label>
 		<br>
-		Guests allowed?<br>
-		No
-		<input type="checkbox"></input>
-		Within Reason
-		<input type="checkbox"></input>
-		Hell ya!
-		<input type="checkbox"></input>
+
+		Alcohol
 		<br>
-		Upload an image:
+		<label ng-class="">
+			<input list="alcohol" ng-model="alcohol" placeholder="Alcohol allowed?">
+            <datalist id="alcohol">
+                  <option value="Yes">
+                  <option value="No">
+            </datalist>
+            <p class="error" ng-bind="error.password"></p>
+		</label>
+		<br>
+
+		Indoor smoking 
+		<br>
+		<label ng-class="">
+			<input list="smoking" ng-model="smoking" placeholder="Smoking allowed?">
+            <datalist id="smoking">
+                  <option value="Yes">
+                  <option value="Nowhere">
+                  <option value="Outside">
+            </datalist>
+            <p class="error" ng-bind="error.password"></p>
+		</label>
+		<br>
+
+		Guests 
+		<br>
+		<label ng-class="">
+			<input list="guests" ng-model="guests" placeholder="Guests?">
+            <datalist id="guests">
+                  <option value="Yes, come on over!">
+                  <option value="Band only">
+                  <option value="1 per bandmate">
+                  <option value="TBD">
+            </datalist>
+            <p class="error" ng-bind="error.password"></p>
+		</label>
+		<br>
+
+<!-- 		Upload an image:
 		<form method="get" action="file.doc">
-			<button type="submit">Upload!</button>
-		</form>
+			<a type="submit">Upload!</a>
+		</form> -->
 		<button type="submit">Submit</button>
 	</form>
 
-	
 </section>
 <!-- name: "",
+	user ID: ,
 	preferred genres: "",[rock, country, heavy metal, pop]
 	open practice: booelan, (defined as  guests other than band members allowed)
 	city: "",

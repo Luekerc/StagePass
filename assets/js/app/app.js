@@ -29,11 +29,12 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/band.html',
 		controller: 'BandCtrl'
 	})
-		.state('logout', {
-		url: '/',
-		templateUrl: '../views/homepage.ejs',
-		controller: 'LogoutCtrl'
-	})
+	// 	.state('logout', {
+	// 	url: '/',
+	// 	templateUrl: '/views/homepage.ejs',
+	// 	controller: 'LogoutCtrl'
+	// })There will be a post request to logout.  Use an ng-click, run a function to 
+// make a post request. An example is from last week.
 
 	$urlRouterProvider.otherwise('/');
 });

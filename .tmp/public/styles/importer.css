@@ -18,18 +18,19 @@ nav {
   background: url(/images/blackground.jpg) no-repeat fixed;
   color: #FFFFFF;
   font-family: Lato;
-  padding: 1em 0 1em 0;
-  margin-bottom: 1em; }
+  padding: 1em 0 1em 0; }
 
 nav h2 {
-  font-size: 3em; }
+  font-size: 4em;
+  color: #997744; }
 
 nav h4 {
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  margin-top: -2em; }
 
 button {
   height: 4em;
-  margin-bottom: 0.25em;
+  margin-top: 0.25em;
   width: 12em;
   font-size: 1.25em;
   font-family: Lato;
@@ -40,7 +41,17 @@ button {
 h2 {
   font-family: lato; }
 
-#body {
-  background: url(/images/white_texture.png) no-repeat fixed; }
+main {
+  background: url(/images/white_texture.png);
+  padding: 2em 0 3em 3.75em; }
+
+.description {
+  font-family: Lato;
+  text-align: center;
+  margin-right: 3em;
+  margin-left: -1em; }
+
+html {
+  background: url(/images/blackground.jpg) fixed; }
 
 /*# sourceMappingURL=importer.css.map */
