@@ -4,7 +4,8 @@ var User = {
 
   attributes: {
   	username : {type: 'email', required: true},
-  	password : {type: 'string', required: true}
+  	password : {type: 'string', required: true},
+    passports: {collection: 'Passport', via: 'user'},
     city : {type: 'string', required: true },
     spacetype : { type: 'string', required: false},
     loading : { type: 'string', required: false },

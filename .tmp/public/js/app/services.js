@@ -18,6 +18,9 @@ angular.module('app.services', [])
 			if(!credentials.password) {
 				error.password = 'Enter a password';
 			}
+			if(!credentials.city){
+				error.city = 'Enter a city';
+			}
 
 			return error;
 		},

@@ -22,11 +22,11 @@
 
 		City
 		<br>
-		<label>
+		<label ng-class="error.city ? 'error' : ''">
 			<input type="text" placeholder="Name of city" ng-model="credentials.city" class="error">
+			<p class="error" ng-bind="error.city"></p>
 		</label>
-		<br>
-		<br>
+		
 		Type of place
 		<br>
 		<label ng-class="">
