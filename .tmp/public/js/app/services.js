@@ -4,7 +4,8 @@ angular.module('app.services', [])
 		credentials: function(credentials) {
 			var error = {
 				identifier: '',
-				password: ''
+				password: '',
+				city: ''
 			};
 
 			if(!credentials.identifier) {

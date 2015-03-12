@@ -23,14 +23,9 @@ var validator = require('validator');
  * @param {Function} next
  */
 exports.register = function (req, res, next) {
-  var email    = req.param('email')
-    , username = req.param('username')
-    , password = req.param('password');
-
-  if (!email) {
-    req.flash('error', 'Error.Passport.Email.Missing');
-    return next(new Error('No email was entered.'));
-  }
+  var username = req.param('username')
+    , password = req.param('password')
+    , city = req.param('city');
 
   if (!username) {
     req.flash('error', 'Error.Passport.Username.Missing');
@@ -41,15 +36,26 @@ exports.register = function (req, res, next) {
     req.flash('error', 'Error.Passport.Password.Missing');
     return next(new Error('No password was entered.'));
   }
+  if (!city) {
+    req.flash('error', 'Error.Passport.City.Missing');
+    return next(new Error('No city was entered.'));
+  }
 
   User.create({
     username : username
-  , email    : email
+  , city     : city
+  , spacetypes : spacetypes
+  , loading    : loading
+  , storage    : storage
+  , alcohol    : alcohol
+  , smoking    : smoking
+  , guess      : guess
+
   }, function (err, user) {
     if (err) {
       if (err.code === 'E_VALIDATION') {
-        if (err.invalidAttributes.email) {
-          req.flash('error', 'Error.Passport.Email.Exists');
+        if (err.invalidAttributes.username) {
+          req.flash('error', 'Error.Passport.Username.Exists');
         } else {
           req.flash('error', 'Error.Passport.User.Exists');
         }
@@ -89,32 +95,32 @@ exports.register = function (req, res, next) {
  * @param {Object}   res
  * @param {Function} next
  */
-exports.connect = function (req, res, next) {
-  var user     = req.user
-    , password = req.param('password');
+// exports.connect = function (req, res, next) {
+//   var user     = req.user
+//     , password = req.param('password');
 
-  Passport.findOne({
-    protocol : 'local'
-  , user     : user.id
-  }, function (err, passport) {
-    if (err) {
-      return next(err);
-    }
+//   Passport.findOne({
+//     protocol : 'local'
+//   , user     : user.id
+//   }, function (err, passport) {
+//     if (err) {
+//       return next(err);
+//     }
 
-    if (!passport) {
-      Passport.create({
-        protocol : 'local'
-      , password : password
-      , user     : user.id
-      }, function (err, passport) {
-        next(err, user);
-      });
-    }
-    else {
-      next(null, user);
-    }
-  });
-};
+//     if (!passport) {
+//       Passport.create({
+//         protocol : 'local'
+//       , password : password
+//       , user     : user.id
+//       }, function (err, passport) {
+//         next(err, user);
+//       });
+//     }
+//     else {
+//       next(null, user);
+//     }
+//   });
+// };
 
 /**
  * Validate a login request
@@ -133,7 +139,7 @@ exports.login = function (req, identifier, password, next) {
     , query   = {};
 
   if (isEmail) {
-    query.email = identifier;
+    query.username = identifier;
   }
   else {
     query.username = identifier;
@@ -146,10 +152,11 @@ exports.login = function (req, identifier, password, next) {
 
     if (!user) {
       if (isEmail) {
-        req.flash('error', 'Error.Passport.Email.NotFound');
-      } else {
         req.flash('error', 'Error.Passport.Username.NotFound');
-      }
+      } 
+      // else {
+      //   req.flash('error', 'Error.Passport.Username.NotFound');
+      // }
 
       return next(null, false);
     }

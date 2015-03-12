@@ -3,6 +3,8 @@ angular.module('app.controllers', ['app.services'])
 	
 })
 .controller('SpaceRegisterCtrl', function($scope, $state, Validate) {
+	$scope.billy=true;
+	$scope.goat=true;
 	$scope.error = {
 		identifier: '',
 		password: ''
@@ -21,15 +23,11 @@ angular.module('app.controllers', ['app.services'])
 				email: credentials.identifier,
 				password: credentials.password
 			};
-				$state.go('master');
+				$state.go('spaceregister');
+				$scope.billy=false;
+				$scope.goat=false;
 		}
 			console.log(registerObj);
-	
-				
-				
-			
-				console.log('go master');
-		
 	};
 })
 
