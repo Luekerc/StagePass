@@ -78,12 +78,12 @@ angular.module('app.controllers', ['app.services'])
 })
 .controller('LogoutCtrl', function($scope, $http, $state) {
 	// $scope.logout = function() {
-	// 	$http.get('/logout')
-	// 	.success(function(response) {
-	// 		if(response.success){
-	// 		$state.go('');
-	// 		}
-	// 	})
+		$http.get('/logout')
+		.success(function(response) {
+			if(response.success){
+			$state.go('');
+			}
+		})
 	// Aaron's ctrl for logout
 	// $scope.loggedIn = User.isLoggedIn();
 	// User.on('logout', function(u) {
@@ -97,17 +97,18 @@ angular.module('app.controllers', ['app.services'])
 	// Enter a city name and click the button, a list of bands
 	// in that city will come up.
 	$scope.findCityBand=function(){
-		console.log("the click works");
 		$scope.response={};
 		$http.get('/auth/user').success(function(response){
-			console.log(response.username);
-			console.log(response.city);
 		$scope.response = [];
-		console.log('Detroit rock city');
-		for(var i=0; i < response.length; i++){
-			$scope.response.push(response[i]);
-			console.log('Billy');
+		if($scope.usercity===response.city){
+		// for(var i=0; i < response.length; i++){
+		// 	$scope.response.push(response[i]);
+		// 	console.log('Billy');
+		console.log(response.city);
+		}else{
+			console.log("Your city was not found, loser!");
 		}
+		
 	  })
    }
 });
