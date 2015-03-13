@@ -23,9 +23,15 @@ var validator = require('validator');
  * @param {Function} next
  */
 exports.register = function (req, res, next) {
-  var username = req.param('username')
-    , password = req.param('password')
-    , city = req.param('city');
+  var username = req.param('username'),
+     password = req.param('password'),
+     city = req.param('city'),
+     spacetypes = req.param('spacetypes'),
+     loading = req.param('loading'),
+     storage = req.param('storage'),
+     alcohol = req.param('storage'),
+     smoking = req.param('smoking'),
+     guests = req.param('guests')
 
   if (!username) {
     req.flash('error', 'Error.Passport.Username.Missing');
@@ -42,14 +48,15 @@ exports.register = function (req, res, next) {
   }
 
   User.create({
-    username : username
-  , city     : city
-  , spacetypes : spacetypes
-  , loading    : loading
-  , storage    : storage
-  , alcohol    : alcohol
-  , smoking    : smoking
-  , guess      : guess
+   username : username,
+   password : password,
+   city     : city,
+   spacetypes : spacetypes,
+   loading    : loading,
+   storage    : storage,
+   alcohol    : alcohol,
+   smoking    : smoking,
+   guests      : guests
 
   }, function (err, user) {
     if (err) {

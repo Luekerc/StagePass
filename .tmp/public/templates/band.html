@@ -1,10 +1,40 @@
-<button type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
-<br>
+<button type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span>
+</button>
+   <br>
 <h3>Find the perfect practice pad!</h3>
-<br>
+   <br>
 <h3>Explore Spaces</h3>
+<div ng-controller="BandCtrl">
 Which city? 
-<input type="input" placeholder="Type City Name Here" class="city-name"></input>
-<br>
-<br><br>
-<button type="button" class="city-search">Search</button>
+   <input type="input" placeholder="Type City Name Here" class="city-name"  ng-model="usercity">
+   </input>
+   <br><br><br>
+   <button type="submit" class="city-search" ng-click="findCityBand()">Search
+   </button>
+	<table class="appts_table" >
+         <tr id="column-headers">
+               <th>Username </th>
+               <th> Email</th>
+               <th> City</th>
+               <th>Type</th>
+               <th> Loading</th>
+               <th> Storage</th>
+               <th> Alcohol</th>
+               <th> Smoking</th>
+               <th> Guests</th>
+         </tr>
+
+         <tr ng-repeat="response in responses">
+               <td>{{response.username}}</td>
+               <td>{{response.email}}</td>
+               <td>{{response.city}}</td>
+               <td>{{response.spacetype}}</td>
+               <td>{{response.loading}}</td>
+               <td>{{response.storage}}</td>
+               <td>{{response.alcohol}}</td>
+               <td>{{response.loading}}</td>
+               <td>{{response.smoking}}</td>
+               <td>{{response.guests}}</td>
+         </tr>
+    </table>
+</div>

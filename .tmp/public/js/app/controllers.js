@@ -12,8 +12,7 @@ angular.module('app.controllers', ['app.services'])
 	};
 	$scope.credentials = {
 		identifier: '',
-		password: '',
-		city: ''
+		password: ''
 	};
 
 	$scope.register = function(credentials) {
@@ -35,7 +34,8 @@ angular.module('app.controllers', ['app.services'])
 			$http.post('/auth/local/register', registerObj)
 			.success(function(res){
 				console.log(res);
-			}).error(function(err){
+			})
+			.error(function(err){
 				console.log(err);
 			});
 				$state.go('spaceregister');
@@ -76,9 +76,38 @@ angular.module('app.controllers', ['app.services'])
 // 	};
 
 })
-.controller('LogoutCtrl', function() {
-
+.controller('LogoutCtrl', function($scope, $http, $state) {
+	// $scope.logout = function() {
+	// 	$http.get('/logout')
+	// 	.success(function(response) {
+	// 		if(response.success){
+	// 		$state.go('');
+	// 		}
+	// 	})
+	// Aaron's ctrl for logout
+	// $scope.loggedIn = User.isLoggedIn();
+	// User.on('logout', function(u) {
+	// 	$scope.loggedIn = false;
+	// 	$state.go('/login');
+	// 	})
 })
-.controller('BandCtrl', function() {
-
+.controller('BandCtrl', function($scope, $http) {
+	$scope.usercity='';
+	$scope.registerObj={};
+	// Enter a city name and click the button, a list of bands
+	// in that city will come up.
+	$scope.findCityBand=function(){
+		console.log("the click works");
+		$scope.response={};
+		$http.get('/auth/user').success(function(response){
+			console.log(response.username);
+			console.log(response.city);
+		$scope.response = [];
+		console.log('Detroit rock city');
+		for(var i=0; i < response.length; i++){
+			$scope.response.push(response[i]);
+			console.log('Billy');
+		}
+	  })
+   }
 });
