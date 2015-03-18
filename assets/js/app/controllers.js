@@ -85,7 +85,7 @@ angular.module('app.controllers', ['app.services'])
 	$scope.response={};
 	$scope.findCityBand=function(response){
 		$http.get('/user?city=' + $scope.usercity).success(function(response){
-			$scope.response=(response);
+			$scope.response=(response.reverse());
    			})
 		$scope.schotz=false;
 	}

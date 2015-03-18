@@ -1,19 +1,39 @@
 body{
 	font-family: Lato;
 }
+#band-div{
+	text-align: center;
+}
+#band-button{
+	height: 4em;
+	text-align: center;
+	margin-top: 0.25em;
+	width: 12em;
+	font-size: 1.25em;
+	font-family: Lato;
+	color: white;
+	text-decoration: bold;
+	border-shadow: 2px 2px 2px white;
+	background: url(/images/blackground.jpg) no-repeat;
+	border-radius: 5px;
+}
 #mobile-list{
 	visibility: visible;
 	width: 15em;
-
+	margin-left: 3.5em;
 }
 .user{
 	background-color: white;
 	border-radius: 5px;
-}
 
+}
+#search-form{
+	text-align: center;
+}
 #main-table {
 	font-family: Lato;
-	margin: 1em 0 0 0;
+	// margin: 1em 0 0 0;
+	text-align: center;
 	border: solid black 5px;
 	width: 90%;
 	border-spacing: 0;
@@ -35,9 +55,10 @@ body{
 	text-align: center;
 	border-bottom: black solid 1px;
 }
-#form-button{
+#search-button{
 	height: 4em;
 	margin-top: 0.25em;
+	text-align: center;
 	margin-bottom: 1em;
 	width: 12em;
 	font-size: 1.25em;
@@ -60,19 +81,19 @@ body{
 	h2{
 		text-align: center;
 	}
-	#all-button{
-		margin-left: 16em;
+	#band-button{
+		// text-align: center;
 	}
 	#search-form{
-		margin-left: 20em;
+		// margin-left: 20em;
 	}
 }
 @media(min-width: 1024px){
 	#all-button{
-		margin-left: 23em;
+		// margin-left: 23em;
 	}
 	#search-form{
-		margin-left: -4.5em;
+		// margin-left: -4.5em;
 		text-align: center;
 	}
 	#main-table {

@@ -11,10 +11,13 @@ nav h2{
 }
 nav h4{
 	font-size: 1.5em;
-	margin-top: -2em;
+}
+#button-div{
+	text-align: center;
 }
 #all-button{
 	height: 4em;
+	text-align: center;
 	margin-top: 0.25em;
 	width: 12em;
 	font-size: 1.25em;
@@ -27,30 +30,22 @@ nav h4{
 }
 h2{
 	font-family: Lato;
+	text-align: center;
 }
 main {
 	background-color: rgb(235,235,235);
-	padding: 2em 0 3em 3.75em;
+	padding: 2em 0 3em 0em;
 }
 .description{
 	font-family: Lato;
 	text-align: center;
-	margin-right: 3em;
-	margin-left: -1em;
 }
 html{
 	background: url(/images/blackground.jpg) fixed;
 }
 @media(min-width: 768px){
-	h2{
-		text-align: center;
-	}
-	#all-button{
-		margin-left: 16em;
-	}
+
 }
 @media(min-width: 1024px){
-	#all-button{
-		margin-left: 24em;
-	}
+
 }

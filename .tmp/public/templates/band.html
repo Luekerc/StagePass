@@ -1,16 +1,18 @@
 <html ng-controller="BandCtrl">
-<button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span>
-</button>
+   <div id="band-div"><button id="band-button" type="button" href="#" ui-sref-active="active" ui-sref="home">
+      Home
+   </button>
+   </div>
    <br>
-<div id="search-form">
-<h3>Find the perfect practice pad!</h3>
-Which city? 
+   <div id="search-form">
+   <h3>Find the perfect practice pad!</h3>
+   Which city? 
    <input type="input" placeholder="Type City Name Here" class="city-name"  ng-model="usercity">
    </input>
    <br><br>
-   <button type="submit" id="form-button" ng-click="findCityBand()">Search
+   <button type="submit" id="search-button" ng-click="findCityBand()">Search
    </button>
-</div>
+   </div>
 <div id="mobile-list" class="table-data">
    <br>
    <ul ng-repeat="data in response" class="user">

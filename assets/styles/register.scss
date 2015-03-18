@@ -1,0 +1,58 @@
+
+#all-button{
+	height: 4em;
+	margin-top: 0.25em;
+	// margin-left: 2.5em;
+	text-align: center;
+	width: 12em;
+	font-size: 1.25em;
+	font-family: Lato;
+	color: white;
+	text-decoration: bold;
+	border-shadow: 2px 2px 2px white;
+	background: url(/images/blackground.jpg) no-repeat;
+	border-radius: 5px;
+}
+.rock-text{
+	text-align: center;
+}
+form{
+	margin-left: 0em;
+	text-align: center;
+}
+#form-button{
+	height: 4em;
+	margin-top: 0.25em;
+	// margin-left: 2.5em;
+	text-align: center;
+	width: 12em;
+	font-size: 1.25em;
+	font-family: Lato;
+	color: white;
+	text-decoration: bold;
+	border-shadow: 2px 2px 2px white;
+	background: url(/images/blackground.jpg) no-repeat;
+	border-radius: 5px;
+}
+
+@media(min-width: 768px){
+	#all-button{
+		// margin-left: 16em;
+		// text-align: center;
+	}
+	form{
+		// margin-left: 24em;
+}
+}
+@media(min-width: 1024px){
+	#all-button{
+		// margin-left: 2em;
+		text-align: center;
+	}
+		form{
+		// margin-left: 36em;
+	}
+	#form-button{
+		// margin-left: -3em;
+	}
+}
