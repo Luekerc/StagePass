@@ -1,16 +1,30 @@
+<html ng-controller="BandCtrl">
 <button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span>
 </button>
    <br>
+<div id="search-form">
 <h3>Find the perfect practice pad!</h3>
-   <br>
-<h3>Explore Spaces</h3>
-<div ng-controller="BandCtrl">
 Which city? 
    <input type="input" placeholder="Type City Name Here" class="city-name"  ng-model="usercity">
    </input>
-   <br><br><br>
-   <button type="submit" class="city-search" ng-click="findCityBand()">Search
+   <br><br>
+   <button type="submit" id="form-button" ng-click="findCityBand()">Search
    </button>
+</div>
+<div id="mobile-list" class="table-data">
+   <br>
+   <ul ng-repeat="data in response" class="user">
+      <li>{{data.username}}</li>
+      <li>{{data.city}}</li>
+      <li>{{data.spacetypes}}</li>
+      <li>{{data.loading}}</li>
+      <li>{{data.storage}}</li>
+      <li>{{data.alcohol}}</li>
+      <li>{{data.smoking}}</li>
+      <li class="mobile-list">{{data.guests}}</li>
+   </ul>
+   <br>
+</div>
 	<table class="appts_table" id="main-table" ng-hide="schotz">
          <tr id="column-headers" class="table-head">
                <th>Username/Email </th>
@@ -34,3 +48,4 @@ Which city?
          </tr>
     </table>
 </div>
+</html>

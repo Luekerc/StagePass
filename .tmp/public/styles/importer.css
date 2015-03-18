@@ -44,7 +44,7 @@ h2 {
   font-family: Lato; }
 
 main {
-  background: url(/images/white_texture.png);
+  background-color: #ebebeb;
   padding: 2em 0 3em 3.75em; }
 
 .description {
@@ -68,13 +68,22 @@ html {
 body {
   font-family: Lato; }
 
+#mobile-list {
+  visibility: visible;
+  width: 15em; }
+
+.user {
+  background-color: white;
+  border-radius: 5px; }
+
 #main-table {
   font-family: Lato;
   margin: 1em 0 0 0;
   border: solid black 5px;
   width: 90%;
   border-spacing: 0;
-  border-radius: 5px; }
+  border-radius: 5px;
+  visibility: hidden; }
 
 .table-head th {
   border-right: 1px solid black;
@@ -93,26 +102,42 @@ body {
 #form-button {
   height: 4em;
   margin-top: 0.25em;
+  margin-bottom: 1em;
   width: 12em;
   font-size: 1.25em;
   font-family: Lato;
   color: white;
   text-decoration: bold;
-  border-shadow: 2px 2px 2px white;
+  border-shadow: 2px 2px 2px 0 white;
   background: url(/images/blackground.jpg) no-repeat;
   border-radius: 5px; }
 
 @media (min-width: 768px) {
+  #mobile-list {
+    visibility: hidden;
+    height: 0em; }
+
+  #main-table {
+    visibility: visible;
+    margin: 0 auto; }
+
   h2 {
     text-align: center; }
 
   #all-button {
     margin-left: 16em; }
 
-  form {
-    margin-left: 24em; } }
+  #search-form {
+    margin-left: 20em; } }
 @media (min-width: 1024px) {
-  form {
-    text-align: center; } }
+  #all-button {
+    margin-left: 23em; }
+
+  #search-form {
+    margin-left: -4.5em;
+    text-align: center; }
+
+  #main-table {
+    margin: 0 auto; } }
 
 /*# sourceMappingURL=importer.css.map */
