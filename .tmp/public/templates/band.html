@@ -1,4 +1,4 @@
-<button type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span>
+<button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span>
 </button>
    <br>
 <h3>Find the perfect practice pad!</h3>
@@ -11,10 +11,9 @@ Which city?
    <br><br><br>
    <button type="submit" class="city-search" ng-click="findCityBand()">Search
    </button>
-	<table class="appts_table" >
-         <tr id="column-headers">
-               <th>Username </th>
-               <th> Email</th>
+	<table class="appts_table" id="main-table" ng-hide="schotz">
+         <tr id="column-headers" class="table-head">
+               <th>Username/Email </th>
                <th> City</th>
                <th>Type</th>
                <th> Loading</th>
@@ -23,18 +22,15 @@ Which city?
                <th> Smoking</th>
                <th> Guests</th>
          </tr>
-
-         <tr ng-repeat="response in responses">
-               <td>{{response.username}}</td>
-               <td>{{response.email}}</td>
-               <td>{{response.city}}</td>
-               <td>{{response.spacetype}}</td>
-               <td>{{response.loading}}</td>
-               <td>{{response.storage}}</td>
-               <td>{{response.alcohol}}</td>
-               <td>{{response.loading}}</td>
-               <td>{{response.smoking}}</td>
-               <td>{{response.guests}}</td>
+         <tr ng-repeat="data in response" class="table-data">
+               <td>{{data.username}}</td>
+               <td>{{data.city}}</td>
+               <td>{{data.spacetypes}}</td>
+               <td>{{data.loading}}</td>
+               <td>{{data.storage}}</td>
+               <td>{{data.alcohol}}</td>
+               <td>{{data.smoking}}</td>
+               <td>{{data.guests}}</td>
          </tr>
     </table>
 </div>

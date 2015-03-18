@@ -1,5 +1,5 @@
 <section class="user-form">
-	<button type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
+	<button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
 	<div class="avatar"></div>
 	<p ng-hide="billy">
 	<strong>Thanks for posting!
@@ -110,7 +110,8 @@
 		</label>
 		<br>
 
-		<button type="submit">Submit</button>
+		<button type="submit" id="form-button">Submit</button>
 	</form>
 		<a type="button" href="#" ui-sref-active="active" ui-sref="login" ng-hide="true"><span>Login</span></a>
+		<span>{{errormessage}}</span>
 </section>

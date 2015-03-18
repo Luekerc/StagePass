@@ -1,6 +1,10 @@
 angular.module('app.controllers', ['app.services'])
-.controller('HomeCtrl', function($scope) {
-	
+.controller('HomeCtrl', function($scope, $http) {
+	$scope.logout = function(){
+		$http.get('/logout');
+		$scope.logout="You are now logged out."
+		// $state.go('login');
+	}
 })
 .controller('SpaceRegisterCtrl', function($scope, $state, $http, Validate) {
 	$scope.billy=true;
@@ -24,7 +28,7 @@ angular.module('app.controllers', ['app.services'])
 				email: credentials.identifier,
 				password: credentials.password,
 				city: credentials.city,
-				type: $scope.spacetypes,
+				spacetypes: $scope.spacetypes,
 				loading: $scope.loading,
 				storage: $scope.storage,
 				alcohol: $scope.alcohol,
@@ -37,78 +41,52 @@ angular.module('app.controllers', ['app.services'])
 			})
 			.error(function(err){
 				console.log(err);
+				$scope.errormessage="There was an error.  Please go Home, click Logout and try again.";
 			});
 				$state.go('spaceregister');
 				$scope.billy=false;
 				$scope.goat=false;
 				console.log(registerObj);
-		}
-			
-	};
+				$scope.logout = function(){
+				$http.get('/logout');
+				};
+		}	
+	}
 })
 
-.controller('LoginCtrl', function() {
+.controller('LoginCtrl', function($scope,$http) {
+		var loginInput = {};
+
+			$http.post('auth/local', loginInput)
+			.success(function(res){
+
+					$scope.loginSuccess=true;
+					$state.go('home');
+			});
+
+	
+
+
 
 })
 .controller('MasterCtrl', function($scope) {
-// 	$scope.user = {
-// 		username: '',
-// 		email: '',
-// 		firstName: '',
-// 		lastName: '',
-// 		address: '',
-// 		city: '',
-// 		state: '',
-// 		zip: '',
-// 		password: ''
-// 	};
-
-// 	$scope.register = function(user) {
-// 		console.log('register');
-// 		user.username = user.email;
-// 		$http.post('/auth/local/register', user)
-// 		.success(function(data) {
-// 			console.log(data);
-// 		})
-// 		.error(function(err) {
-// 			console.log(err);
-// 		});
-// 	};
 
 })
 .controller('LogoutCtrl', function($scope, $http, $state) {
-	// $scope.logout = function() {
-		$http.get('/logout')
-		.success(function(response) {
-			if(response.success){
-			$state.go('');
-			}
-		})
-	// Aaron's ctrl for logout
-	// $scope.loggedIn = User.isLoggedIn();
-	// User.on('logout', function(u) {
-	// 	$scope.loggedIn = false;
-	// 	$state.go('/login');
-	// 	})
+	
+	$scope.logout = function(){
+		$http.get('/logout');
+		$state.go('login');
+	}
+
 })
 .controller('BandCtrl', function($scope, $http) {
-	$scope.usercity='';
-	$scope.registerObj={};
-	// Enter a city name and click the button, a list of bands
-	// in that city will come up.
-	$scope.findCityBand=function(){
-		$scope.response={};
-		$http.get('/auth/user').success(function(response){
-		$scope.response = [];
-		if($scope.usercity===response.city){
-		// for(var i=0; i < response.length; i++){
-		// 	$scope.response.push(response[i]);
-		// 	console.log('Billy');
-		console.log(response.city);
-		}else{
-			console.log("Your city was not found, loser!");
-		}
-		
-	  })
-   }
+	$scope.schotz=true;
+	$scope.response={};
+	$scope.findCityBand=function(response){
+		$http.get('/user?city=' + $scope.usercity).success(function(response){
+			$scope.response=(response);
+   			})
+		$scope.schotz=false;
+	}
 });

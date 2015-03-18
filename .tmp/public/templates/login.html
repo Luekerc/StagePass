@@ -1,5 +1,5 @@
 <section class="user-form">
-      <button type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
+      <button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
       <div class="avatar"></div>
       <h1>Log in</h1>
       <form class="form" ng-submit="login(credentials)">
@@ -11,6 +11,6 @@
                   <input type="password" placeholder="Password" ng-model="credentials.password">
                   <p class="error" ng-bind="error.password"></p>
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" id="all-button">Submit</button>
       </form>
 </section>

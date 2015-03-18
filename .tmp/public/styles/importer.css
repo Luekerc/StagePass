@@ -28,7 +28,7 @@ nav h4 {
   font-size: 1.5em;
   margin-top: -2em; }
 
-button {
+#all-button {
   height: 4em;
   margin-top: 0.25em;
   width: 12em;
@@ -36,10 +36,12 @@ button {
   font-family: Lato;
   color: white;
   text-decoration: bold;
-  background: url(/images/amp2.png) no-repeat; }
+  border-shadow: 2px 2px 2px white;
+  background: url(/images/blackground.jpg) no-repeat;
+  border-radius: 5px; }
 
 h2 {
-  font-family: lato; }
+  font-family: Lato; }
 
 main {
   background: url(/images/white_texture.png);
@@ -53,5 +55,64 @@ main {
 
 html {
   background: url(/images/blackground.jpg) fixed; }
+
+@media (min-width: 768px) {
+  h2 {
+    text-align: center; }
+
+  #all-button {
+    margin-left: 16em; } }
+@media (min-width: 1024px) {
+  #all-button {
+    margin-left: 24em; } }
+body {
+  font-family: Lato; }
+
+#main-table {
+  font-family: Lato;
+  margin: 1em 0 0 0;
+  border: solid black 5px;
+  width: 90%;
+  border-spacing: 0;
+  border-radius: 5px; }
+
+.table-head th {
+  border-right: 1px solid black;
+  border-bottom: 3px solid black;
+  padding-top: 3px;
+  background-color: black;
+  color: white; }
+
+.table-data td {
+  padding-top: 5px;
+  border-right: black solid 1px;
+  background-color: white;
+  text-align: center;
+  border-bottom: black solid 1px; }
+
+#form-button {
+  height: 4em;
+  margin-top: 0.25em;
+  width: 12em;
+  font-size: 1.25em;
+  font-family: Lato;
+  color: white;
+  text-decoration: bold;
+  border-shadow: 2px 2px 2px white;
+  background: url(/images/blackground.jpg) no-repeat;
+  border-radius: 5px; }
+
+@media (min-width: 768px) {
+  h2 {
+    text-align: center; }
+
+  #all-button {
+    margin-left: 16em; }
+
+  form {
+    margin-left: 24em; } }
+@media (min-width: 1024px) {
+  form {
+    text-align: center; } }
 
 /*# sourceMappingURL=importer.css.map */
