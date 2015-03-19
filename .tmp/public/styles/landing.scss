@@ -1,8 +1,8 @@
 nav{
 	text-align: center;
-	background: url(/images/blackground.jpg) no-repeat fixed;
+	background: url(/images/rock-background.png) no-repeat;
 	color:#FFFFFF;
-	font-family: Lato;
+	font-family: LATO;
 	padding: 1em 0 1em 0;
 }
 nav h2{
@@ -21,19 +21,19 @@ nav h4{
 	margin-top: 0.25em;
 	width: 12em;
 	font-size: 1.25em;
-	font-family: Lato;
+	font-family: LATO;
 	color: white;
 	text-decoration: bold;
 	border-shadow: 2px 2px 2px white;
 	background: url(/images/blackground.jpg) no-repeat;
-	border-radius: 5px;
+	border-radius: 20px;
 }
 h2{
-	font-family: Lato;
+	font-family: HARD ROCK;
 	text-align: center;
 }
 main {
-	background-color: rgb(235,235,235);
+	// background-color: rgb(235,235,235);
 	padding: 2em 0 3em 0em;
 }
 .description{
@@ -41,11 +41,27 @@ main {
 	text-align: center;
 }
 html{
-	background: url(/images/blackground.jpg) fixed;
+	// background-color: white;
 }
 @media(min-width: 768px){
-
+nav h2{
+	font-size: 6em;
+	color: #997744;
+}
+h2{
+	font-size: 4em;
+}
 }
 @media(min-width: 1024px){
-
+nav h2{
+	font-size: 8em;
+	color: #997744;
+}
+nav h4{
+	font-size: 3em;
+}
+nav{
+	// background: url('');
+	
+}
 }

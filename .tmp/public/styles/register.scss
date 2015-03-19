@@ -6,19 +6,21 @@
 	text-align: center;
 	width: 12em;
 	font-size: 1.25em;
-	font-family: Lato;
+	font-family: LATO;
 	color: white;
 	text-decoration: bold;
 	border-shadow: 2px 2px 2px white;
 	background: url(/images/blackground.jpg) no-repeat;
-	border-radius: 5px;
+	border-radius: 30px;
 }
 .rock-text{
 	text-align: center;
+	font-family: HARD ROCK;
 }
 form{
 	margin-left: 0em;
 	text-align: center;
+
 }
 #form-button{
 	height: 4em;
@@ -32,7 +34,7 @@ form{
 	text-decoration: bold;
 	border-shadow: 2px 2px 2px white;
 	background: url(/images/blackground.jpg) no-repeat;
-	border-radius: 5px;
+	border-radius: 30px;
 }
 
 @media(min-width: 768px){
@@ -42,6 +44,7 @@ form{
 	}
 	form{
 		// margin-left: 24em;
+
 }
 }
 @media(min-width: 1024px){
