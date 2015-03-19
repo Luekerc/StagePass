@@ -1,6 +1,6 @@
 nav{
 	text-align: center;
-	background: url(/images/rock-background.png) no-repeat;
+	background-color: black;
 	color:#FFFFFF;
 	font-family: LATO;
 	padding: 1em 0 1em 0;
@@ -33,16 +33,14 @@ h2{
 	text-align: center;
 }
 main {
-	// background-color: rgb(235,235,235);
+	background-color: white;
 	padding: 2em 0 3em 0em;
 }
 .description{
 	font-family: Lato;
 	text-align: center;
 }
-html{
-	// background-color: white;
-}
+
 @media(min-width: 768px){
 nav h2{
 	font-size: 6em;
@@ -50,6 +48,10 @@ nav h2{
 }
 h2{
 	font-size: 4em;
+}
+.description{
+	width: 50%;
+	margin: 0 auto;
 }
 }
 @media(min-width: 1024px){
@@ -61,7 +63,8 @@ nav h4{
 	font-size: 3em;
 }
 nav{
-	// background: url('');
-	
+background: url('/images/rock-background.png') no-repeat;
+background-color: black;
 }
+
 }

@@ -15,7 +15,7 @@
  */
 nav {
   text-align: center;
-  background: url(/images/rock-background.png) no-repeat;
+  background-color: black;
   color: #FFFFFF;
   font-family: LATO;
   padding: 1em 0 1em 0; }
@@ -48,6 +48,7 @@ h2 {
   text-align: center; }
 
 main {
+  background-color: white;
   padding: 2em 0 3em 0em; }
 
 .description {
@@ -60,14 +61,22 @@ main {
     color: #997744; }
 
   h2 {
-    font-size: 4em; } }
+    font-size: 4em; }
+
+  .description {
+    width: 50%;
+    margin: 0 auto; } }
 @media (min-width: 1024px) {
   nav h2 {
     font-size: 8em;
     color: #997744; }
 
   nav h4 {
-    font-size: 3em; } }
+    font-size: 3em; }
+
+  nav {
+    background: url("/images/rock-background.png") no-repeat;
+    background-color: black; } }
 body {
   font-family: Lato; }
 
