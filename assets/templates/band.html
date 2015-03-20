@@ -17,7 +17,9 @@
    <br>
    <ul ng-repeat="data in response" class="container"><!--user-->
       <li>{{data.username}}</li>
+      <li>{{data.street}}</li>
       <li>{{data.city}}</li>
+      <li>{{data.zip}}</li>
       <li>{{data.spacetypes}}</li>
       <li>{{data.loading}}</li>
       <li>{{data.storage}}</li>
@@ -32,7 +34,9 @@
          <!-- <tr id="column-headers" class="table-head"> -->
          <tr>
                <th>Username/Email </th>
+               <th>Street</th>
                <th> City</th>
+               <th>Zip Code</th>
                <th>Type</th>
                <th> Loading</th>
                <th> Storage</th>
@@ -42,7 +46,9 @@
          </tr>
          <tr ng-repeat="data in response">
                <td>{{data.username}}</td>
+               <td>{{data.street}}</td>
                <td>{{data.city}}</td>
+               <td>{{data.zip}}</td>
                <td>{{data.spacetypes}}</td>
                <td>{{data.loading}}</td>
                <td>{{data.storage}}</td>

@@ -3,11 +3,11 @@
 	<button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
 	</div>
 	<div class="avatar"></div>
-	<p ng-hide="billy" class="rock-text">
+	<div ng-hide="billy" class="rock-text">
 	<strong>Thanks for posting!
 	<br>
 	YOU ROCK! </strong>
-	</p>
+	</div>
 
 	<form class="form" ng-submit="register(credentials)"  ng-show="goat" novalidate>
 		<h1>Register</h1>
@@ -24,11 +24,25 @@
 		</label>
 		</div>
 		<div>
+		Street Address
+		<br>
+		<label ng-class="">
+			<input type="text" placeholder="1000 South Congress" ng-model="street">
+		</label>
+		</div>
+		<div>
 		City
 		<br>
 		<label ng-class="error.city ? 'error' : ''">
 			<input type="text" placeholder="Name of city" ng-model="credentials.city" class="error">
 			<p class="error" ng-bind="error.city"></p>
+		</label>
+		</div>
+		<div>
+		Zip Code
+		<br>
+		<label ng-class="">
+			<input type="text" placeholder="78747" ng-model="zip">
 		</label>
 		</div>
 		<div>

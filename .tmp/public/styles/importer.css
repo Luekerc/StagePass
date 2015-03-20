@@ -188,6 +188,9 @@ form {
   margin-left: 0em;
   text-align: center; }
 
+p {
+  color: red; }
+
 #form-button {
   height: 4em;
   margin-top: 0.25em;
