@@ -1,0 +1,164 @@
+ <section  ng-controller="ProfileCtrl">
+
+ 	<div id="band-div">
+ 		<button id="band-button" type="button" href="#" ui-sref-active="active" ui-sref="home">
+      	Home
+   		</button>
+ 	</div>
+	<h4>Use this page to change or delete your profile.</h4>
+ 	<div>
+ 		Username (email)<br>
+		<label ng-class="">
+			<input type="text" placeholder="Email" ng-model="username">
+		</label>
+	</div>
+	<div>
+		Password <br>
+		<label ng-class="">
+			<input type="password" placeholder="your password" ng-model="password">
+		</label>
+	</div>
+
+ <div id="band-div">
+   <button id="band-button" type="button" id="search-button" ng-click="deleteAccount()">Delete My Account
+   </button>
+ </div>
+
+
+
+<div>
+<h4>These are your current settings</h4>
+<div>
+<!-- Table that shows profile -->
+	 <ul>
+	  <li>{{response.username}}</li>
+      <li>{{response.street}}</li>
+      <li>{{response.city}}</li>
+      <li>{{response.zip}}</li>
+      <li>{{response.spacetypes}}</li>
+      <li>{{response.loading}}</li>
+      <li>{{response.storage}}</li>
+      <li>{{response.alcohol}}</li>
+      <li>{{response.smoking}}</li>
+     </ul>
+</div>
+</div>
+
+<form class="form" ng-submit="register(credentials)"  ng-show="goat" novalidate>
+		<h1>Register</h1>
+		<div>
+		Street Address
+		<br>
+		<label ng-class="">
+			<input type="text" placeholder="1000 South Congress" ng-model="street">
+		</label>
+		</div>
+		<div>
+		City
+		<br>
+		<label ng-class="">
+			<input type="text" placeholder="Name of city" ng-model="city">
+		</label>
+		</div>
+		<div>
+		Zip Code
+		<br>
+		<label ng-class="">
+			<input type="text" placeholder="78747" ng-model="zip">
+		</label>
+		</div>
+		<div>
+		Type of place
+		<br>
+		<label ng-class="">
+			<input list="spacetypes" ng-model="spacetypes" placeholder="What kind of place?">
+            <datalist id="spacetypes">
+                  <option value="Garage">hi</option>
+                  <option value="Barn">
+                  <option value="Basement">
+                  <option value="Warehouse">
+                  <option value="Attic">
+                  <option value="Living Room">
+               	  <option value="Spare Room">
+                  <option value="Other">
+            </datalist>
+           <!--  <p class="error" ng-bind="error.password"></p> -->
+		</label>
+		</div>
+		<br>
+		<div>
+		Loading Issues
+		<br>
+		<label ng-class="">
+			<input list="loading" ng-model="loading" placeholder="Any obstacles?">
+            <datalist id="loading">
+                  <option value="None"></option>
+                  <option value="Locked Gate"></option>
+                  <option value="Stairs"></option>
+                  <option value="Guard Dogs"></option>
+                  <option value="Limited Parking"></option>
+                  <option value="Moat"></option>
+            </datalist>
+           <!--  <p class="error" ng-bind="error.password"></p> -->
+		</label>
+		</div>
+		<br>
+		<div>
+		Secure Overnight Storage
+		<br>
+		<label ng-class="">
+			<input list="storage" ng-model="storage" placeholder="Secure/available?">
+            <datalist id="storage">
+                  <option value="Yes"></option>
+                  <option value="No"></option>
+            </datalist>
+           <!--  <p class="error" ng-bind="error.password"></p> -->
+		</label>
+		</div>
+		<br>
+		<div>
+		Alcohol
+		<br>
+		<label ng-class="">
+			<input list="alcohol" ng-model="alcohol" placeholder="Alcohol allowed?">
+            <datalist id="alcohol">
+                  <option value="Yes"></option>
+                  <option value="No"></option>
+            </datalist>
+           <!--  <p class="error" ng-bind="error.password"></p> -->
+		</label>
+		</div>
+		<br>
+		<div>
+		Indoor smoking 
+		<br>
+		<label ng-class="">
+			<input list="smoking" ng-model="smoking" placeholder="Smoking allowed?">
+            <datalist id="smoking">
+                  <option value="Yes"></option>
+                  <option value="Nowhere"></option>
+                  <option value="Outside"></option>
+            </datalist>
+           <!--  <p class="error" ng-bind="error.password"></p> -->
+		</label>
+		<br><br>
+		<div>
+		Guests 
+		<br>
+		<label ng-class="">
+			<input list="guests" ng-model="guests" placeholder="Guests?">
+            <datalist id="guests">
+                  <option value="Yes, come on over!"></option>
+                  <option value="Band only"></option>
+                  <option value="1 per bandmate"></option>
+                  <option value="TBD">
+            </datalist>
+           <!--  <p class="error" ng-bind="error.password"></p> -->
+		</label>
+		</div>
+		<br>
+		<button type="submit" id="form-button">Submit</button>
+	</form>
+</section>
+
+

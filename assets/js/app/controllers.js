@@ -1,13 +1,14 @@
 angular.module('app.controllers', ['app.services'])
-.controller('HomeCtrl', function($scope, $http) {
+.controller('HomeCtrl', function($scope, $http, $state) {
 	$scope.logout = function(){
 		$http.get('/logout');
 		$scope.logout="You are now logged out."
-		// $state.go('login');
+		$state.go('home');
 	}
 })
 .controller('SpaceRegisterCtrl', function($scope, $state, $http, Validate) {
 	$scope.billy=true;
+	var registerObj;
 	$scope.goat=true;
 	$scope.error = {
 		identifier: '',
@@ -82,59 +83,74 @@ angular.module('app.controllers', ['app.services'])
 })
 
 .controller('LoginCtrl', function($scope,$http) {
-		var loginInput = {};
+// 		var loginInput = {};
 
-			$http.post('auth/local', loginInput)
-			.success(function(res){
+// 			$http.post('auth/local', loginInput)
+// 			.success(function(res){
 
-					$scope.loginSuccess=true;
-					$state.go('home');
-			});
+// 					$scope.loginSuccess=true;
+// 					$state.go('profile');
+// 			});
 })
-.controller('MasterCtrl', function($scope) {
-
+.controller('ProfileCtrl', function($scope,$http) {
+	// $scope.response={};
+	// $scope.deleteAccount=function(response){
+	// $http.get('/user?username=' + $scope.username).success(function(response){
+	// $scope.response=(response.reverse());
+	// 	if( $scope.username===response.username && $scope.password===response.password){
+	// 		$http.delete('/user?username=' + $scope.username).success(function(response){
+	// 		$scope.response=(response);
+	// 		})
+	// 	}
+	// 	})
+	// }
 })
 .controller('LogoutCtrl', function($scope, $http, $state) {
 	$scope.logout = function(){
 		$http.get('/logout');
-		$state.go('login');
+		$state.go('home');
 	}
 })
 .controller('BandCtrl', function($scope, $http) {
 	$scope.schotz=true;
 	$scope.response={};
-	// var bounds = new google.maps.LatLngBounds();
-	// var infowindow = new google.maps.InfoWindow();    
+	var i;
+	var mapOptions;
+	var map;
 	
 	$scope.findCityBand=function(response){
 		$http.get('/user?city=' + $scope.usercity).success(function(response){
 		$scope.response=(response.reverse());
-		console.log(response);
+		console.log(response[1].longitude);
 
-
-			for (var i=0; i<response.length; i++){
-			// console.log(response[i].latitude);
-			// console.log(response[i].longitude);
-				var mapOptions = {
+		for (var i=0; i<response.length; i++){
+			if (response[i].latitude && response[i].longitude != null){
+				// response = [];
+				mapOptions = {
 		  			zoom: 8,
-		 			center: new google.maps.LatLng(response[i].latitude, response[i].longitude)
-				};
-				var map = new google.maps.Map(document.getElementById('map'),
-		    		mapOptions);
+		 			center: new google.maps.LatLng(response[i].longitude,response[i].latitude),
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				}
 
-				var myLatlng = new google.maps.LatLng(response[i].latitude,response[i].longitude);
+				map = new google.maps.Map(document.getElementById('map'),
+		    	mapOptions);
+        }
+        var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude);
+      	for (var i=0; i<response.length; i++){
+      			console.log(i);
         	
         		var marker = new google.maps.Marker({
-      				position: myLatlng,
-      				map: map,
-      				title: "Hello Wolrd!"
+      			position: myLatlng,
+      			map: map,
+      			title: "Hello World!"
       			})
-        	}
-
+        		}
+        }
+       
         });
+
 		$scope.schotz=false;
 	}
-      // google.maps.event.addDomListener(window, 'load', initialize);
 });
 
 
