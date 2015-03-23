@@ -1,77 +1,69 @@
  <div  ng-controller="ProfileCtrl">
-
+<!-- 
  	<div id="band-div">
  		<button id="band-button" type="button" href="#" ui-sref-active="active" ui-sref="home">
       	Home
    		</button>
  	</div>
-	<h4>Use this page to change or delete your profile.</h4>
- 	<div class="divs">
- 		Username (email)<br>
-		<label ng-class="">
-			<input type="text" placeholder="Email" ng-model="username">
-		</label>
-	</div>
-	<div class="divs">
-		Password <br>
-		<label ng-class="">
-			<input type="password" placeholder="your password" ng-model="password">
-		</label>
-	</div>
-
- <div id="band-div">
-   <button id="band-button" type="button" id="search-button" ng-click="deleteAccount()">Delete My Account
-   </button>
- </div>
+ -->	
+ <h4>Your profile</h4>
+ 
 
 
-
-<div>
-<h4>These are your current settings</h4>
-<div>
 <!-- Table that shows profile -->
-	 <ul>
-	  <li>{{response.username}}</li>
-      <li>{{response.street}}</li>
-      <li>{{response.city}}</li>
-      <li>{{response.zip}}</li>
-      <li>{{response.spacetypes}}</li>
-      <li>{{response.loading}}</li>
-      <li>{{response.storage}}</li>
-      <li>{{response.alcohol}}</li>
-      <li>{{response.smoking}}</li>
+<!-- 	 <ul>
+	  <li>USERNAME:  {{response.username}}</li>
+      <li>STREET:  {{response.street}}</li>
+      <li>CITY:  {{response.city}}</li>
+      <li>ZIP:  {{response.zip}}</li>
+      <li>TYPE:  {{response.spacetypes}}</li>
+      <li>LOADING ISSUES:  {{response.loading}}</li>
+      <li>STORAGE:  {{response.storage}}</li>
+      <li>ALCOHOL:  {{response.alcohol}}</li>
+      <li>SMOKING:  {{response.smoking}}</li>
+      <li>SMOKING:  {{response.guests}}</li>
      </ul>
 </div>
+</div> -->
+
+<div id="band-div">
+<button id="band-button" type="button" href="#" ui-sref-active="active"  ng-click="logout()">
+	<span>Logout</span>
+</button>
 </div>
 
-<form class="form" ng-submit="register(credentials)"  ng-show="goat" novalidate>
-		<h1>Register</h1>
+<form class="" ng-submit="changes()" ng-submit="register(credentials)" ng-show="true">
+		<h4>Your current profile settings are listed in the boxes below.  To make changes, enter your new information into the text box and hit "Submit".</h4>
+		<h6>(You cannot change your username)</h6>
+		<div>
+		<h3><strong> Hello {{response.username}}!</strong></h3>
+		
 		<div>
 		Street Address
 		<br>
 		<label ng-class="">
-			<input type="text" placeholder="1000 South Congress" ng-model="street">
+			<input type="text" placeholder="{{response.street}}" ng-model="street">
 		</label>
 		</div>
 		<div>
 		City
 		<br>
 		<label ng-class="">
-			<input type="text" placeholder="Name of city" ng-model="city">
+			<input type="text" placeholder="{{response.city}}" ng-model="city">
 		</label>
 		</div>
 		<div>
 		Zip Code
 		<br>
 		<label ng-class="">
-			<input type="text" placeholder="78747" ng-model="zip">
+			<input type="text" placeholder="{{response.zip}}" ng-model="zip">
 		</label>
 		</div>
 		<div>
 		Type of place
 		<br>
 		<label ng-class="">
-			<input list="spacetypes" ng-model="spacetypes" placeholder="What kind of place?">
+			<input list="spacetypes" ng-model="spacetypes" placeholder="{{response.spacetypes}}">
             <datalist id="spacetypes">
                   <option value="Garage">hi</option>
                   <option value="Barn">
@@ -82,7 +74,6 @@
                	  <option value="Spare Room">
                   <option value="Other">
             </datalist>
-           <!--  <p class="error" ng-bind="error.password"></p> -->
 		</label>
 		</div>
 		<br>
@@ -90,7 +81,7 @@
 		Loading Issues
 		<br>
 		<label ng-class="">
-			<input list="loading" ng-model="loading" placeholder="Any obstacles?">
+			<input list="loading" ng-model="loading" placeholder="{{response.loading}}">
             <datalist id="loading">
                   <option value="None"></option>
                   <option value="Locked Gate"></option>
@@ -99,7 +90,6 @@
                   <option value="Limited Parking"></option>
                   <option value="Moat"></option>
             </datalist>
-           <!--  <p class="error" ng-bind="error.password"></p> -->
 		</label>
 		</div>
 		<br>
@@ -107,12 +97,11 @@
 		Secure Overnight Storage
 		<br>
 		<label ng-class="">
-			<input list="storage" ng-model="storage" placeholder="Secure/available?">
+			<input list="storage" ng-model="storage" placeholder="{{response.storage}}">
             <datalist id="storage">
                   <option value="Yes"></option>
                   <option value="No"></option>
             </datalist>
-           <!--  <p class="error" ng-bind="error.password"></p> -->
 		</label>
 		</div>
 		<br>
@@ -120,12 +109,11 @@
 		Alcohol
 		<br>
 		<label ng-class="">
-			<input list="alcohol" ng-model="alcohol" placeholder="Alcohol allowed?">
+			<input list="alcohol" ng-model="alcohol" placeholder="{{response.alcohol}}">
             <datalist id="alcohol">
                   <option value="Yes"></option>
                   <option value="No"></option>
             </datalist>
-           <!--  <p class="error" ng-bind="error.password"></p> -->
 		</label>
 		</div>
 		<br>
@@ -133,27 +121,25 @@
 		Indoor smoking 
 		<br>
 		<label ng-class="">
-			<input list="smoking" ng-model="smoking" placeholder="Smoking allowed?">
+			<input list="smoking" ng-model="smoking" placeholder="{{response.smoking}}">
             <datalist id="smoking">
                   <option value="Yes"></option>
                   <option value="Nowhere"></option>
                   <option value="Outside"></option>
             </datalist>
-           <!--  <p class="error" ng-bind="error.password"></p> -->
 		</label>
 		<br><br>
 		<div>
 		Guests 
 		<br>
 		<label ng-class="">
-			<input list="guests" ng-model="guests" placeholder="Guests?">
+			<input list="guests" ng-model="guests" placeholder="{{response.guests}}">
             <datalist id="guests">
                   <option value="Yes, come on over!"></option>
                   <option value="Band only"></option>
                   <option value="1 per bandmate"></option>
                   <option value="TBD">
             </datalist>
-           <!--  <p class="error" ng-bind="error.password"></p> -->
 		</label>
 		</div>
 		<br>

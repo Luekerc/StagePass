@@ -12,10 +12,12 @@
 	border-shadow: 2px 2px 2px white;
 	background: url(/images/blackground.jpg) no-repeat;
 	border-radius: 30px;
+	outline: none;
 }
 .rock-text{
 	text-align: center;
-	font-family: HARD ROCK;
+	font-size: 2em;
+	margin-top: 2em;
 }
 form{
 	margin-left: 0em;
@@ -38,6 +40,7 @@ p{
 	border-shadow: 2px 2px 2px white;
 	background: url(/images/blackground.jpg) no-repeat;
 	border-radius: 30px;
+	outline: none;
 }
 
 @media(min-width: 768px){

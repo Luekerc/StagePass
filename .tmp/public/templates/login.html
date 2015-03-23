@@ -1,6 +1,6 @@
 <html ng-controller="LoginCtrl">
 <div class="user-form">
-      <button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
+<!--       <button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button> -->
       <div class="avatar"></div>
       <h1>Log in</h1>
             <form class="form" ng-submit="login(username, password)">
@@ -9,14 +9,14 @@
             <!-- <label ng-class="error.identifier ? 'error' : ''"> -->
                 <!--   <input type="text" placeholder="Email" ng-model="credentials.identifier">
                   <p class="error" ng-bind="error.identifier"></p> -->
-                  <input type="text" placeholder="Email/username" ng-model="useremail">
+                  <input type="text" placeholder="Email/username" ng-model="username">
             </label>
             <br>
             <label>
             <!-- <label ng-class="error.password ? 'error' : ''"> -->
           <!--         <input type="password" placeholder="Password" ng-model="credentials.password">
                   <p class="error" ng-bind="error.password"></p> -->
-                  <input type="text" placeholder="password" ng-model="userpassword">
+                  <input type="text" placeholder="password" ng-model="password">
             </label>
             <br>
             <button type="submit" id="all-button">Submit</button>

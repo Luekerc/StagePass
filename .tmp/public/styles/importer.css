@@ -45,7 +45,8 @@ section h2 {
   text-decoration: bold;
   border-shadow: 2px 2px 2px white;
   background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 20px; }
+  border-radius: 20px;
+  outline: none; }
 
 h2 {
   font-family: HARD ROCK;
@@ -107,7 +108,8 @@ body {
   text-decoration: bold;
   border-shadow: 2px 2px 2px white;
   background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px; }
+  border-radius: 30px;
+  outline: none; }
 
 #mobile-list {
   visibility: visible;
@@ -158,7 +160,8 @@ body {
   text-decoration: bold;
   border-shadow: 2px 2px 2px 0 white;
   background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px; }
+  border-radius: 30px;
+  outline: none; }
 
 #table-div {
   visibility: hidden; }
@@ -180,6 +183,11 @@ body {
   h2 {
     text-align: center; } }
 @media (min-width: 1024px) {
+  .ad {
+    margin-left: 14em;
+    height: 5em;
+    background: url("http://images.guitarcenter.com/Content/GC/promo/2015/01-Jan/pencil/13680-Feb-Finance-hp-pencil-new.jpg") no-repeat; }
+
   #search-form {
     text-align: center; }
 
@@ -201,11 +209,13 @@ body {
   text-decoration: bold;
   border-shadow: 2px 2px 2px white;
   background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px; }
+  border-radius: 30px;
+  outline: none; }
 
 .rock-text {
   text-align: center;
-  font-family: HARD ROCK; }
+  font-size: 2em;
+  margin-top: 2em; }
 
 form {
   margin-left: 0em;
@@ -225,14 +235,16 @@ p {
   text-decoration: bold;
   border-shadow: 2px 2px 2px white;
   background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px; }
+  border-radius: 30px;
+  outline: none; }
 
 @media (min-width: 1024px) {
   #all-button {
     text-align: center; } }
 #all-buttons {
   text-align: center;
-  margin-top: 1em; }
+  margin-top: 1em;
+  outline: none; }
 
 #band-div {
   text-align: center; }
@@ -248,7 +260,8 @@ p {
   text-decoration: bold;
   border-shadow: 2px 2px 2px white;
   background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px; }
+  border-radius: 30px;
+  outline: none; }
 
 h4 {
   text-align: center; }

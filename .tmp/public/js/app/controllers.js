@@ -2,7 +2,6 @@ angular.module('app.controllers', ['app.services'])
 
 .controller('NavCtrl', function($scope, $http, $state){
     $scope.logOut = function () {
-        // console.log ('test logout click');
         $http.post('/logout')
         .success(function(response) {
             if (response.success)
@@ -11,12 +10,13 @@ angular.module('app.controllers', ['app.services'])
     }
     $scope.loginRoute = function() {
         $state.go('login');
+
     }
     $scope.createProfileRoute = function() {
         $state.go('spaceregister');
     }
-})
 
+})
 .controller('HomeCtrl', function($scope, $http, $state) {
 	$scope.logout = function(){
 		$http.get('/logout');
@@ -98,10 +98,10 @@ angular.module('app.controllers', ['app.services'])
 })
 
 .controller('LoginCtrl', function($scope,$http, $state) {
-		$scope.login=function(useremail, userpassword){
+		$scope.login=function(username, password){
 			loginInput={
-				identifier: useremail,
-				password: userpassword
+				identifier: username,
+				password: password
 			};
 			$http.post('/auth/local', loginInput)
 			.success(function(res){
@@ -115,39 +115,52 @@ angular.module('app.controllers', ['app.services'])
 		};
 })
 .controller('ProfileCtrl', function($scope,$http,$state) {
-	// $scope.response={};
-	// $scope.deleteAccount=function(response){
-	// $http.get('/user?username=' + $scope.username).success(function(response){
-	// $scope.response=(response.reverse());
-	// 	if( $scope.username===response.username && $scope.password===response.password){
-	// 		$http.delete('/user?username=' + $scope.username).success(function(response){
-	// 		$scope.response=(response);
-	// 		})
-	// 	}
-	// 	})
-	// }
+	// $scope.goat=false;
+	$scope.login=true;
+	$http.get('/auth/user')
+			.success(function(res){
+				console.log(res);
+				$scope.response=res;
+				$scope.login=false;
+			})
+	$scope.logout = function(){
+		$http.get('/logout');
+		$state.go('home');
+	}
+		//use a function modeled after scope.register to do a put request on the /user/userid
+	$scope.changes = function() {
+		$http.put('/user/userid').success
+	}
+
+
+	
 })
+
 .controller('LogoutCtrl', function($scope, $http, $state) {
 	$scope.logout = function(){
 		$http.get('/logout');
 		$state.go('home');
 	}
 })
+
+
 .controller('BandCtrl', function($scope, $http) {
 	$scope.schotz=true;
 	$scope.response=[];
 	var i;
 	var mapOptions;
-	var map;
+	var map = false;
 	var markerObject;
 	
 	$scope.findCityBand=function(response){
 		$http.get('/user?city=' + $scope.usercity).success(function(response){
 			$scope.response=(response.reverse());
 		
+			var bounds = new google.maps.LatLngBounds();
+    		var infowindow = new google.maps.InfoWindow();
 
 			for (var i=0; i<response.length; i++){
-				if (response[i].latitude && response[i].longitude != null){
+				if (response[i].latitude && response[i].longitude){
 				
 					mapOptions = {
 		  				zoom: 8,
@@ -155,20 +168,33 @@ angular.module('app.controllers', ['app.services'])
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					}
 				
-				console.log(response[i].longitude);
-				console.log(response[i].latitude);
-				map = new google.maps.Map(document.getElementById('map'),
-		    	mapOptions)
-        
-        		var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude)
-      			
-        		var marker = new google.maps.Marker({
-      				position: myLatlng,
-      				map: map,
-      				title: response[i].username
-      			})
+					console.log(response[i].longitude);
+					console.log(response[i].latitude);
+					
+					if(map === false){
+						map = new google.maps.Map(document.getElementById('map'),
+			    		mapOptions)
+					}
+	        
+	        		var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude)
+	      			
+	    //     		var infowindow = new google.maps.InfoWindow({
+   		// 			 content: "<span>Text goes here</span>"
+					// });
+
+	        		var marker = new google.maps.Marker({
+	      				position: myLatlng,
+	      				map: map,
+	      				title:  response[i].username
+	      				
+	      			});
+	    //   			google.maps.event.addListener(marker, 'click', function() {
+  			// 		infowindow.open(map,marker);
+					// });
+	      			bounds.extend(marker.position);
         		}
         	}
+        	map.fitBounds(bounds);
         })
 		$scope.schotz=false;
 		$scope.usercity="";
@@ -176,37 +202,44 @@ angular.module('app.controllers', ['app.services'])
 	};
 	});
 
+// 	$scope.schotz=true;
+	
+// 	$scope.findCityBand=function(response){
+// 		$http.get('/user?city=' + $scope.usercity).success(function(response){
+// 			$scope.response=(response.reverse());
+// 			locations=$scope.response;
+// 			var bound = new google.maps.LatLngBounds();
+// 			var infowindow = new google.maps.InfoWindow();
 
-	// var map = new google.maps.Map(document.getElementById('map'), {
- //      				zoom: 15,
- //      				center: new google.maps.LatLng(41.923, 12.513), 
- //      				mapTypeId: google.maps.MapTypeId.ROADMAP
- //    	});
+// 			console.log(locations);
 
- //    	var infowindow = new google.maps.InfoWindow();
+// 			for (i = 0; i < locations.length; i++) {
+// 				if()
+//   					bound.extend( new google.maps.LatLng(locations[i].latitude, locations[i].longitude));
 
- //   		 var marker, i;
+//    		 			var mapOptions = {
+//       					zoom: 10,
+//       					center: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
+//       					mapTypeId: google.maps.MapTypeId.ROADMAP
+//     				};
+//     				console.log(locations[i].username, locations[i].latitude);
+//     				var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    		
+//     				var latlng = new google.maps.LatLng(locations[i].latitude, locations[i].longitude);
+//         			bound.extend(latlng);
 
- //    	for (i = 0; i < response.length; i++) {  
- //      			marker = new google.maps.Marker({
- //        		position: new google.maps.LatLng(response[i][1], response[i][2]),
- //        		map: map
- //      		});
+//     				var marker = new google.maps.Marker({
+//             				position: latlng,
+//             				map: map,
+//             				title: locations[i].username
+//         			});
+//     		}
+//     		map.fitBounds(bound);
+//       	})
+   	 		
+// 	}
+// 		$scope.schotz=false;
+// 		$scope.usercity="";
+// });
 
- //      		google.maps.event.addListener(marker, 'click', (function(marker, i) {
- //        		return function() {
- //          			infowindow.setContent(response[i][0]);
- //          			infowindow.open(map, marker);
- //        		}
- //      		})(marker, i));
- //    	}
- //      }
-
- //      function loadScript() {
- //        var script = document.createElement('script');
- //        script.type = 'text/javascript';
- //        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
- //        document.body.appendChild(script);
- //      }
-
- //      window.onload = loadScript;
+// 	

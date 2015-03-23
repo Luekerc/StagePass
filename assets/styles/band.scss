@@ -4,6 +4,7 @@ body{
 #band-div{
 	text-align: center;
 }
+
 #band-button{
 	height: 4em;
 	text-align: center;
@@ -16,6 +17,7 @@ body{
 	border-shadow: 2px 2px 2px white;
 	background: url(/images/blackground.jpg) no-repeat;
 	border-radius: 30px;
+	outline: none;
 }
 #mobile-list{
 	visibility: visible;
@@ -73,6 +75,7 @@ body{
 	border-shadow: 2px 2px 2px 0 white;
 	background: url(/images/blackground.jpg) no-repeat;
 	border-radius: 30px;
+	outline: none;
 }
 #table-div{
 	visibility: hidden;
@@ -102,6 +105,12 @@ body{
 	}
 }
 @media(min-width: 1024px){
+
+.ad{
+	margin-left: 14em;
+	height: 5em;
+	background: url('http://images.guitarcenter.com/Content/GC/promo/2015/01-Jan/pencil/13680-Feb-Finance-hp-pencil-new.jpg') no-repeat;
+}
 	#all-button{
 		// margin-left: 23em;
 	}
