@@ -1,4 +1,22 @@
 angular.module('app.controllers', ['app.services'])
+
+.controller('NavCtrl', function($scope, $http, $state){
+    $scope.logOut = function () {
+        // console.log ('test logout click');
+        $http.post('/logout')
+        .success(function(response) {
+            if (response.success)
+                $state.go('home');
+        })
+    }
+    $scope.loginRoute = function() {
+        $state.go('login');
+    }
+    $scope.createProfileRoute = function() {
+        $state.go('spaceregister');
+    }
+})
+
 .controller('HomeCtrl', function($scope, $http, $state) {
 	$scope.logout = function(){
 		$http.get('/logout');
@@ -52,11 +70,8 @@ angular.module('app.controllers', ['app.services'])
 					if (status == google.maps.GeocoderStatus.OK){
 						var latLng = results[0].geometry.location;
 						// TODO: Register the user
-						console.log(latLng);
-						registerObj.latitude = latLng.k;
-						registerObj.longitude = latLng.D;
-						console.log(latLng.D);
-						console.log(latLng.k);
+						registerObj.latitude = latLng.D;
+						registerObj.longitude = latLng.k;
 						// TODO: Go to the next page
 						$http.post('/auth/local/register', registerObj)
 						.success(function(res){
@@ -82,17 +97,24 @@ angular.module('app.controllers', ['app.services'])
 	}
 })
 
-.controller('LoginCtrl', function($scope,$http) {
-// 		var loginInput = {};
-
-// 			$http.post('auth/local', loginInput)
-// 			.success(function(res){
-
-// 					$scope.loginSuccess=true;
-// 					$state.go('profile');
-// 			});
+.controller('LoginCtrl', function($scope,$http, $state) {
+		$scope.login=function(useremail, userpassword){
+			loginInput={
+				identifier: useremail,
+				password: userpassword
+			};
+			$http.post('/auth/local', loginInput)
+			.success(function(res){
+				console.log(res);
+				// for(var i=0; i<res.length; i++){
+					// if($scope.useremail===res[i].username && $scope.userpassword===res[i].password){
+					// 	console.log(res[i]);
+				$state.go('profile');
+			})
+				// }	
+		};
 })
-.controller('ProfileCtrl', function($scope,$http) {
+.controller('ProfileCtrl', function($scope,$http,$state) {
 	// $scope.response={};
 	// $scope.deleteAccount=function(response){
 	// $http.get('/user?username=' + $scope.username).success(function(response){
@@ -113,45 +135,46 @@ angular.module('app.controllers', ['app.services'])
 })
 .controller('BandCtrl', function($scope, $http) {
 	$scope.schotz=true;
-	$scope.response={};
+	$scope.response=[];
 	var i;
 	var mapOptions;
 	var map;
+	var markerObject;
 	
 	$scope.findCityBand=function(response){
 		$http.get('/user?city=' + $scope.usercity).success(function(response){
-		$scope.response=(response.reverse());
-		console.log(response[1].longitude);
+			$scope.response=(response.reverse());
+		
 
-		for (var i=0; i<response.length; i++){
-			if (response[i].latitude && response[i].longitude != null){
-				// response = [];
-				mapOptions = {
-		  			zoom: 8,
-		 			center: new google.maps.LatLng(response[i].longitude,response[i].latitude),
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-				}
-
+			for (var i=0; i<response.length; i++){
+				if (response[i].latitude && response[i].longitude != null){
+				
+					mapOptions = {
+		  				zoom: 8,
+		 				center: new google.maps.LatLng(response[i].longitude,response[i].latitude),
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					}
+				
+				console.log(response[i].longitude);
+				console.log(response[i].latitude);
 				map = new google.maps.Map(document.getElementById('map'),
-		    	mapOptions);
-        }
-        var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude);
-      	for (var i=0; i<response.length; i++){
-      			console.log(i);
-        	
+		    	mapOptions)
+        
+        		var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude)
+      			
         		var marker = new google.maps.Marker({
-      			position: myLatlng,
-      			map: map,
-      			title: "Hello World!"
+      				position: myLatlng,
+      				map: map,
+      				title: response[i].username
       			})
         		}
-        }
-       
-        });
-
+        	}
+        })
 		$scope.schotz=false;
-	}
-});
+		$scope.usercity="";
+
+	};
+	});
 
 
 	// var map = new google.maps.Map(document.getElementById('map'), {

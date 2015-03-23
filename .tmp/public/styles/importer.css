@@ -13,19 +13,23 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
-nav {
+section {
   text-align: center;
   background-color: black;
   color: #FFFFFF;
   font-family: LATO;
-  padding: 1em 0 1em 0; }
+  padding: 3em 0 0 0; }
 
-nav h2 {
+section h2 {
   font-size: 4em;
-  color: #997744; }
+  color: #997744;
+  margin-bottom: 0; }
 
-nav h4 {
+.tag-line {
   font-size: 1.5em; }
+
+.rock {
+  height: 2em; }
 
 #button-div {
   text-align: center; }
@@ -48,35 +52,44 @@ h2 {
   text-align: center; }
 
 main {
-  background-color: white;
-  padding: 2em 0 3em 0em; }
+  background-color: white; }
 
 .description {
   font-family: Lato;
   text-align: center; }
 
 @media (min-width: 768px) {
-  nav h2 {
-    font-size: 6em;
+  section h2 {
+    font-size: 5em;
     color: #997744; }
 
   h2 {
-    font-size: 4em; }
-
-  .description {
-    width: 50%;
-    margin: 0 auto; } }
-@media (min-width: 1024px) {
-  nav h2 {
-    font-size: 8em;
-    color: #997744; }
-
-  nav h4 {
     font-size: 3em; }
 
-  nav {
+  .description {
+    padding-top: 1em;
+    width: 55%;
+    margin: 0 auto; } }
+@media (min-width: 1024px) {
+  section {
     background: url("/images/rock-background.png") no-repeat;
-    background-color: black; } }
+    background-color: black;
+    padding: 2em 0 0 0;
+    border-bottom: 2em solid #222222; }
+
+  section h2 {
+    font-size: 7em;
+    color: #997744;
+    padding-top: 0.5em; }
+
+  .tag-line {
+    font-size: 2em;
+    margin-bottom: 0; }
+
+  .rock {
+    height: 2em;
+    margin-bottom: 0;
+    padding-bottom: 0em; } }
 body {
   font-family: Lato; }
 
@@ -99,11 +112,13 @@ body {
 #mobile-list {
   visibility: visible;
   width: 15em;
-  margin-left: 3.5em; }
+  margin: 0 auto; }
 
-.user {
-  background-color: white;
-  border-radius: 5px; }
+.container {
+  color: white;
+  background: url(/images/blackground.jpg) no-repeat fixed;
+  padding: 1em 0 1em 2em;
+  border-radius: 10px; }
 
 #search-form {
   text-align: center; }
@@ -145,6 +160,9 @@ body {
   background: url(/images/blackground.jpg) no-repeat;
   border-radius: 30px; }
 
+#table-div {
+  visibility: hidden; }
+
 @media (min-width: 768px) {
   #mobile-list {
     visibility: hidden;
@@ -153,6 +171,11 @@ body {
   #main-table {
     visibility: visible;
     margin: 0 auto; }
+
+  #table-div {
+    margin: 0 auto;
+    width: 80%;
+    visibility: visible; }
 
   h2 {
     text-align: center; } }
@@ -208,7 +231,8 @@ p {
   #all-button {
     text-align: center; } }
 #all-buttons {
-  text-align: center; }
+  text-align: center;
+  margin-top: 1em; }
 
 #band-div {
   text-align: center; }
@@ -227,6 +251,12 @@ p {
   border-radius: 30px; }
 
 h4 {
+  text-align: center; }
+
+.divs {
+  text-align: center; }
+
+.user-form {
   text-align: center; }
 
 /*# sourceMappingURL=importer.css.map */

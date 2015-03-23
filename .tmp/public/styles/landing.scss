@@ -1,16 +1,20 @@
-nav{
+section{
 	text-align: center;
 	background-color: black;
 	color:#FFFFFF;
 	font-family: LATO;
-	padding: 1em 0 1em 0;
+	padding: 3em 0 0 0;
 }
-nav h2{
+section h2{
 	font-size: 4em;
 	color: #997744;
+	margin-bottom: 0;
 }
-nav h4{
+.tag-line{
 	font-size: 1.5em;
+}
+.rock{
+	height: 2em;
 }
 #button-div{
 	text-align: center;
@@ -34,7 +38,7 @@ h2{
 }
 main {
 	background-color: white;
-	padding: 2em 0 3em 0em;
+	// padding: 2em 0 3em 0em;
 }
 .description{
 	font-family: Lato;
@@ -42,29 +46,39 @@ main {
 }
 
 @media(min-width: 768px){
-nav h2{
-	font-size: 6em;
+section h2{
+	font-size: 5em;
 	color: #997744;
 }
 h2{
-	font-size: 4em;
+	font-size: 3em;
 }
 .description{
-	width: 50%;
+	padding-top: 1em;
+	width: 55%;
 	margin: 0 auto;
 }
 }
 @media(min-width: 1024px){
-nav h2{
-	font-size: 8em;
-	color: #997744;
-}
-nav h4{
-	font-size: 3em;
-}
-nav{
+section{
 background: url('/images/rock-background.png') no-repeat;
 background-color: black;
+padding: 2em 0 0 0;
+border-bottom: 2em solid rgb(34,34,34);
+}
+section h2{
+	font-size: 7em;
+	color: #997744;
+	padding-top: 0.5em;
+}
+.tag-line{
+	font-size: 2em;
+	margin-bottom: 0;
+}
+.rock{
+	height: 2em;
+	margin-bottom: 0;
+	padding-bottom: 0em;
 }
 
 }

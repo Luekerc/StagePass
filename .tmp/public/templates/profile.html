@@ -1,4 +1,4 @@
- <section  ng-controller="ProfileCtrl">
+ <div  ng-controller="ProfileCtrl">
 
  	<div id="band-div">
  		<button id="band-button" type="button" href="#" ui-sref-active="active" ui-sref="home">
@@ -6,13 +6,13 @@
    		</button>
  	</div>
 	<h4>Use this page to change or delete your profile.</h4>
- 	<div>
+ 	<div class="divs">
  		Username (email)<br>
 		<label ng-class="">
 			<input type="text" placeholder="Email" ng-model="username">
 		</label>
 	</div>
-	<div>
+	<div class="divs">
 		Password <br>
 		<label ng-class="">
 			<input type="password" placeholder="your password" ng-model="password">
@@ -159,6 +159,6 @@
 		<br>
 		<button type="submit" id="form-button">Submit</button>
 	</form>
-</section>
+</div>
 
 

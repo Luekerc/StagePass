@@ -20,13 +20,18 @@ body{
 #mobile-list{
 	visibility: visible;
 	width: 15em;
-	margin-left: 3.5em;
+	margin: 0 auto;
 }
-.user{
-	background-color: white;
-	border-radius: 5px;
-
+.container{
+	color: white;
+	background: url(/images/blackground.jpg) no-repeat fixed;
+	padding: 1em 0 1em 2em;
+	border-radius: 10px;
 }
+// .user{
+// 	background-color: yellow;
+// 	border-radius: 5px;
+// }
 #search-form{
 	text-align: center;
 }
@@ -69,6 +74,9 @@ body{
 	background: url(/images/blackground.jpg) no-repeat;
 	border-radius: 30px;
 }
+#table-div{
+	visibility: hidden;
+}
 @media(min-width: 768px){
 	#mobile-list{
 	visibility: hidden;
@@ -77,6 +85,11 @@ body{
 	#main-table{
 		visibility: visible;
 		margin: 0 auto;
+	}
+	#table-div{
+	margin: 0 auto;
+	width: 80%;
+	visibility: visible;
 	}
 	h2{
 		text-align: center;
@@ -99,6 +112,7 @@ body{
 	#main-table {
 	margin: 0 auto;
 }
+
 #map{
 	height: 400px;
 	width: 50%;

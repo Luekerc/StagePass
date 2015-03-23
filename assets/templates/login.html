@@ -1,18 +1,25 @@
 <html ng-controller="LoginCtrl">
-<section class="user-form">
+<div class="user-form">
       <button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></button>
       <div class="avatar"></div>
       <h1>Log in</h1>
-      <form class="form" ng-submit="login(credentials)">
-            <label ng-class="error.identifier ? 'error' : ''">
-                  <input type="text" placeholder="Email" ng-model="credentials.identifier">
-                  <p class="error" ng-bind="error.identifier"></p>
+            <form class="form" ng-submit="login(username, password)">
+<!--       <form class="form" ng-submit="login(credentials)"> -->
+            <label>
+            <!-- <label ng-class="error.identifier ? 'error' : ''"> -->
+                <!--   <input type="text" placeholder="Email" ng-model="credentials.identifier">
+                  <p class="error" ng-bind="error.identifier"></p> -->
+                  <input type="text" placeholder="Email/username" ng-model="useremail">
             </label>
-            <label ng-class="error.password ? 'error' : ''">
-                  <input type="password" placeholder="Password" ng-model="credentials.password">
-                  <p class="error" ng-bind="error.password"></p>
+            <br>
+            <label>
+            <!-- <label ng-class="error.password ? 'error' : ''"> -->
+          <!--         <input type="password" placeholder="Password" ng-model="credentials.password">
+                  <p class="error" ng-bind="error.password"></p> -->
+                  <input type="text" placeholder="password" ng-model="userpassword">
             </label>
+            <br>
             <button type="submit" id="all-button">Submit</button>
       </form>
-</section>
+</div>
 </html>

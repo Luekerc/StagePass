@@ -1,11 +1,35 @@
-<div ng-app="app">
-    <nav>
-        <section>
+<div ng-app="app" >
+    <nav id="nav-padding">
+       <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" ng-controller = "NavCtrl">
+         <div class="container-fluid">
+           <!-- Brand and toggle get grouped for better mobile display -->
+           <div class="navbar-header">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </div>    
+
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <ul class="nav navbar-nav">
+               <li><a href="#"ui-sref-active='active' ui-sref='home'>Home</a></li>
+               <li><a href="#" ng-hide="navLogin"ui-sref-active='active' ui-sref='login'>Login</a></li>
+               <li><a href="#" ng-show="navRegister"ui-sref-active='active' ui-sref='spaceregister'>Create Profile</a></li>
+               <li><a href="#" ui-sref-active='active' ui-sref='band'>Search</a></li>
+               <li><a href="#" ng-click="logOut()">Logout</a></li>
+             </ul>
+           </div><!-- /.navbar-collapse -->
+         </div><!-- /.container-fluid -->
+       </nav>
+   </nav>
+
+    <section>
         <h2>StagePass</h2>
-        <h4>Don't support music...
-        <div class="rock"><br>ROCK IT!</div></h4>
-        </section>
-    </nav>
+        <div  class='tag-line'>Don't support music...
+        <div class="rock">ROCK IT!</div></div>
+    </section>
+
     <main  ui-view>
         <h4 class="description">StagePass lets you contribute to 
         your local music scene by connecting  
@@ -29,5 +53,5 @@
         </div>
 
     </main>
-    <div id="body"></div>
+ 
 </div>
