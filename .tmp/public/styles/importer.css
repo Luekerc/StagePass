@@ -269,6 +269,16 @@ h4 {
 .divs {
   text-align: center; }
 
+.container {
+  color: white;
+  background: url(/images/blackground.jpg) no-repeat fixed;
+  padding: 1em 0 1em 2em;
+  border-radius: 10px;
+  width: 20em; }
+
+@media (min-width: 1024px) {
+  .container {
+    font-size: 1.5em; } }
 .user-form {
   text-align: center; }
 

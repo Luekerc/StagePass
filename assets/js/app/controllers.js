@@ -1,11 +1,14 @@
 angular.module('app.controllers', ['app.services'])
 
 .controller('NavCtrl', function($scope, $http, $state, $rootScope){
+    $rootScope.isLoggedin=false;
+
     $scope.logOut = function () {
         $http.post('/logout')
         .success(function(response) {
             if (response.success)
                 $state.go('home');
+            	$rootScope.isLoggedin = false;
         })
     }
     $scope.loginRoute = function() {
@@ -17,14 +20,17 @@ angular.module('app.controllers', ['app.services'])
     }
 
 })
-.controller('HomeCtrl', function($scope, $http, $state) {
+.controller('HomeCtrl', function($scope, $http, $state, $rootScope) {
+	$rootScope.isLoggedin=false;
 	$scope.logout = function(){
 		$http.get('/logout');
 		$scope.logout="You are now logged out."
 		$state.go('home');
+		$rootScope.isLoggedin=true;
 	}
 })
-.controller('SpaceRegisterCtrl', function($scope, $state, $http, Validate) {
+.controller('SpaceRegisterCtrl', function($scope, $state, $http, $rootScope, Validate) {
+	$rootScope.isLoggedin=false;
 	$scope.billy=true;
 	var registerObj;
 	$scope.goat=true;
@@ -33,6 +39,7 @@ angular.module('app.controllers', ['app.services'])
 		password: '',
 		city: ''
 	};
+
 	$scope.credentials = {
 		identifier: '',
 		password: ''
@@ -76,6 +83,7 @@ angular.module('app.controllers', ['app.services'])
 						$http.post('/auth/local/register', registerObj)
 						.success(function(res){
 							console.log(res);
+							$rootScope.isLoggedin=true;
 						})
 						.error(function(err){
 							console.log(err);
@@ -87,6 +95,8 @@ angular.module('app.controllers', ['app.services'])
 						console.log(registerObj);
 						$scope.logout = function(){
 						$http.get('/logout');
+						$rootScope.isLoggedin=true;
+						$scope.logout="You are now logged out."
 						};
 					} else {
 						alert('Geocode was not successful for the following reason: ' + status);
@@ -97,7 +107,10 @@ angular.module('app.controllers', ['app.services'])
 	}
 })
 
-.controller('LoginCtrl', function($scope,$http, $state) {
+.controller('LoginCtrl', function($scope,$http, $state, $rootScope) {
+		$rootScope.isLoggedin = false;
+
+
 		$scope.login=function(username, password){
 			loginInput={
 				identifier: username,
@@ -105,17 +118,12 @@ angular.module('app.controllers', ['app.services'])
 			};
 			$http.post('/auth/local', loginInput)
 			.success(function(res){
-				console.log(res);
-				// for(var i=0; i<res.length; i++){
-					// if($scope.useremail===res[i].username && $scope.userpassword===res[i].password){
-					// 	console.log(res[i]);
+				$rootScope.isLoggedin = true;
 				$state.go('profile');
 			})
-				// }	
-		};
+		}
 })
 .controller('ProfileCtrl', function($scope,$http,$state) {
-	// $scope.goat=false;
 	$scope.login=true;
 	$http.get('/auth/user')
 			.success(function(res){
@@ -126,14 +134,36 @@ angular.module('app.controllers', ['app.services'])
 	$scope.logout = function(){
 		$http.get('/logout');
 		$state.go('home');
+		$scope.login=false;
 	}
-		//use a function modeled after scope.register to do a put request on the /user/userid
+	//use a function modeled after scope.register to do a put request on the /user/userid
 	$scope.changes = function() {
-		$http.put('/user/userid').success
-	}
-
-
-	
+		console.log('changes');
+		var changeObj = {
+				street: $scope.street,
+				city: $scope.city,
+				zip: $scope.zip,
+				spacetypes: $scope.spacetypes,
+				loading: $scope.loading,
+				storage: $scope.storage,
+				alcohol: $scope.alcohol,
+				smoking: $scope.smoking,
+				guests: $scope.guests
+			};
+		if($scope.street){
+			console.log('street to be changed');
+			$scope.profileerror='';
+			$http.put('/user/userid', changeObj.street).success(function(res){
+				console.log(res);
+				$state.go('home');
+				$scope.profileerror='';
+			});
+		}
+		else{
+			console.log('no changes have been made');
+			$scope.profileerror='No changes have been made.';
+		}
+	}	
 })
 
 .controller('LogoutCtrl', function($scope, $http, $state) {
@@ -151,18 +181,14 @@ angular.module('app.controllers', ['app.services'])
 	var mapOptions;
 	var map = false;
 	var markerObject;
-	var addMarker;
-	var marker;
-	var myLatlng;
 	var position;
-
+	var addMarker;
 	
 	$scope.findCityBand=function(response){
 		$http.get('/user?city=' + $scope.usercity).success(function(response){
 			$scope.response=(response.reverse());
 		
 			var bounds = new google.maps.LatLngBounds();
-    		// var infowindow = new google.maps.InfoWindow();
 
 			for (var i=0; i<response.length; i++){
 				if (response[i].latitude && response[i].longitude){
@@ -178,28 +204,26 @@ angular.module('app.controllers', ['app.services'])
 						map = new google.maps.Map(document.getElementById('map'),
 			    		mapOptions)
 					}
-				// var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude);
-				var name =response[i].username;
-				
-				addMarker(map,name,myLatlng);
-	        	function addMarker(map,name,myLatlng){
-	        		var myLatlng = new google.maps.LatLng(response[i].longitude,
-	        			response[i].latitude);
-	      	
-	        		marker = new google.maps.Marker({
-	      				position: myLatlng,
-	      				map: map,
-	      				title:  'Billy'
-	      			});
-	      			var infowindow = new google.maps.InfoWindow({
-   					 content: name
-					});
-	      			google.maps.event.addListener(marker, 'click', function() {
-  					infowindow.open(map,marker);
-					});
-
-				}
-
+	
+		        		var myLatlng = new google.maps.LatLng(response[i].longitude,
+		        			response[i].latitude);
+		        		
+		        		var marker = new google.maps.Marker({
+		      				position: myLatlng,
+		      				map: map,
+		      				title:  response[i].username
+		      			});
+		      			 
+		      				console.log(marker);
+		      			
+		        			var name =response[i].username;
+		        
+		      				google.maps.event.addListener(marker, 'click', function() {
+		      				var infowindow = new google.maps.InfoWindow({
+	   						 content: this.title
+							});
+	  						infowindow.open(map,this);
+							});
 	      			bounds.extend(marker.position);
         		}
         	}

@@ -5,7 +5,7 @@
 
 <button id="all-button" type="button" href="#" ui-sref-active="active" ui-sref="login"><span>My Profile</span></button><br>
 
-<button id="all-button" type="button" href="#" ui-sref-active="active"  ng-click="logout()"><span>Logout</span></button>
+<button id="all-button" type="button" href="#" ui-sref-active="active"  ng-click="logout()" ng-show="isLoggedin"><span>Logout</span></button>
 <br>
 <strong style="color: red;">{{logout}}</strong>
 </div>
