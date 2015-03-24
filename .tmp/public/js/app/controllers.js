@@ -1,6 +1,6 @@
 angular.module('app.controllers', ['app.services'])
 
-.controller('NavCtrl', function($scope, $http, $state){
+.controller('NavCtrl', function($scope, $http, $state, $rootScope){
     $scope.logOut = function () {
         $http.post('/logout')
         .success(function(response) {
@@ -151,46 +151,55 @@ angular.module('app.controllers', ['app.services'])
 	var mapOptions;
 	var map = false;
 	var markerObject;
+	var addMarker;
+	var marker;
+	var myLatlng;
+	var position;
+
 	
 	$scope.findCityBand=function(response){
 		$http.get('/user?city=' + $scope.usercity).success(function(response){
 			$scope.response=(response.reverse());
 		
 			var bounds = new google.maps.LatLngBounds();
-    		var infowindow = new google.maps.InfoWindow();
+    		// var infowindow = new google.maps.InfoWindow();
 
 			for (var i=0; i<response.length; i++){
 				if (response[i].latitude && response[i].longitude){
 				
 					mapOptions = {
 		  				zoom: 8,
-		 				center: new google.maps.LatLng(response[i].longitude,response[i].latitude),
+		 				center: new google.maps.LatLng(response[i].longitude,
+		 				response[i].latitude),
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					}
-				
-					console.log(response[i].longitude);
-					console.log(response[i].latitude);
 					
 					if(map === false){
 						map = new google.maps.Map(document.getElementById('map'),
 			    		mapOptions)
 					}
-	        
-	        		var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude)
-	      			
-	    //     		var infowindow = new google.maps.InfoWindow({
-   		// 			 content: "<span>Text goes here</span>"
-					// });
-
-	        		var marker = new google.maps.Marker({
+				// var myLatlng = new google.maps.LatLng(response[i].longitude,response[i].latitude);
+				var name =response[i].username;
+				
+				addMarker(map,name,myLatlng);
+	        	function addMarker(map,name,myLatlng){
+	        		var myLatlng = new google.maps.LatLng(response[i].longitude,
+	        			response[i].latitude);
+	      	
+	        		marker = new google.maps.Marker({
 	      				position: myLatlng,
 	      				map: map,
-	      				title:  response[i].username
-	      				
+	      				title:  'Billy'
 	      			});
-	    //   			google.maps.event.addListener(marker, 'click', function() {
-  			// 		infowindow.open(map,marker);
-					// });
+	      			var infowindow = new google.maps.InfoWindow({
+   					 content: name
+					});
+	      			google.maps.event.addListener(marker, 'click', function() {
+  					infowindow.open(map,marker);
+					});
+
+				}
+
 	      			bounds.extend(marker.position);
         		}
         	}
