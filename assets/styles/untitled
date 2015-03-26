@@ -1,0 +1,60 @@
+
+<html ng-controller="BandCtrl">
+<!--    <div id="band-div">
+      <button id="band-button" type="button" href="#" ui-sref-active="active" ui-sref="home">
+      Home
+      </button>
+   </div> -->
+      <br>
+   
+ 
+   <div id="mobile-list" class="table-data">
+      <br>
+         <ul ng-repeat="data in response" class="container"><!--user-->
+            <li>{{data.username}}</li>
+            <li>{{data.street}}</li>
+            <li>{{data.city}}</li>
+            <li>{{data.zip}}</li>
+            <li>{{data.spacetypes}}</li>
+            <li>{{data.loading}}</li>
+            <li>{{data.storage}}</li>
+            <li>{{data.alcohol}}</li>
+            <li>{{data.smoking}}</li>
+            <li class="mobile-list">{{data.guests}}</li>
+         </ul>
+      <br>
+   </div>
+   <div id="table-div">
+	  <table class="table table-striped table-bordered table-hover table-condensed table-responsive" ng-hide="schotz">
+<!--       <table class="appts_table" id="main-table" ng-hide="schotz"> -->
+         <!-- <tr id="column-headers" class="table-head"> -->
+         <tr>
+               <th>Username/Email </th>
+               <th>Street</th>
+               <th> City</th>
+               <th>Zip Code</th>
+               <th>Type</th>
+               <th> Loading</th>
+               <th> Storage</th>
+               <th> Alcohol</th>
+               <th> Smoking</th>
+               <th> Guests</th>
+         </tr>
+         <tr ng-repeat="data in response">
+               <td>{{data.username}}</td>
+               <td>{{data.street}}</td>
+               <td>{{data.city}}</td>
+               <td>{{data.zip}}</td>
+               <td>{{data.spacetypes}}</td>
+               <td>{{data.loading}}</td>
+               <td>{{data.storage}}</td>
+               <td>{{data.alcohol}}</td>
+               <td>{{data.smoking}}</td>
+               <td>{{data.guests}}</td>
+         </tr>
+      </table>
+    </div>
+    <div id="map">
+    </div>
+</div>
+</html>

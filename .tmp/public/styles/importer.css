@@ -13,17 +13,42 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
+h1 {
+  font-family: HARD ROCK;
+  color: #997744;
+  font-size: 5em; }
+
+h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 0.8em; }
+
+.btn {
+  background-color: #8B6225;
+  color: #F4ECE0;
+  font-weight: bold;
+  border-radius: 0;
+  font-size: 1.5em; }
+
+.hero {
+  padding: 4em 0 1em 0; }
+
 section {
   text-align: center;
   background-color: black;
   color: #FFFFFF;
   font-family: LATO;
-  padding: 3em 0 0 0; }
+  padding: 3em 0 0 0;
+  background: url("/images/rock-background.png") no-repeat;
+  background-color: black; }
 
 section h2 {
   font-size: 4em;
   color: #997744;
   margin-bottom: 0; }
+
+h1 {
+  font-size: 3em; }
 
 .tag-line {
   font-size: 1.5em; }
@@ -48,10 +73,6 @@ section h2 {
   border-radius: 20px;
   outline: none; }
 
-h2 {
-  font-family: HARD ROCK;
-  text-align: center; }
-
 main {
   background-color: white; }
 
@@ -64,8 +85,8 @@ main {
     font-size: 5em;
     color: #997744; }
 
-  h2 {
-    font-size: 3em; }
+  h1 {
+    font-size: 5em; }
 
   .description {
     padding-top: 1em;
@@ -83,6 +104,9 @@ main {
     color: #997744;
     padding-top: 0.5em; }
 
+  h1 {
+    font-size: 6em; }
+
   .tag-line {
     font-size: 2em;
     margin-bottom: 0; }
@@ -97,74 +121,23 @@ body {
 #band-div {
   text-align: center; }
 
-#band-button {
-  height: 4em;
-  text-align: center;
-  margin-top: 0.25em;
-  width: 12em;
-  font-size: 1.25em;
-  font-family: Lato;
-  color: white;
-  text-decoration: bold;
-  border-shadow: 2px 2px 2px white;
-  background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px;
-  outline: none; }
+button {
+  text-align: center; }
 
 #mobile-list {
   visibility: visible;
   width: 15em;
   margin: 0 auto; }
 
-.container {
-  color: white;
-  background: url(/images/blackground.jpg) no-repeat fixed;
-  padding: 1em 0 1em 2em;
-  border-radius: 10px; }
-
 #search-form {
   text-align: center; }
 
-#main-table {
-  font-family: Lato;
-  text-align: center;
-  border: solid black 5px;
-  width: 90%;
-  border-spacing: 0;
-  border-radius: 5px;
-  visibility: hidden; }
-
-.table-head th {
-  border-right: 1px solid black;
-  border-bottom: 3px solid black;
-  padding-top: 3px;
-  background-color: black;
-  color: white; }
-
-.table-data td {
-  padding-top: 5px;
-  border-right: black solid 1px;
-  background-color: white;
-  text-align: center;
-  border-bottom: black solid 1px; }
-
-#search-button {
-  height: 4em;
-  margin-top: 0.25em;
-  text-align: center;
-  margin-bottom: 1em;
-  width: 12em;
-  font-size: 1.25em;
-  font-family: Lato;
-  color: white;
-  text-decoration: bold;
-  border-shadow: 2px 2px 2px 0 white;
-  background: url(/images/blackground.jpg) no-repeat;
-  border-radius: 30px;
-  outline: none; }
-
 #table-div {
   visibility: hidden; }
+
+#map {
+  height: 400px;
+  width: 100%; }
 
 @media (min-width: 768px) {
   #mobile-list {
@@ -178,10 +151,7 @@ body {
   #table-div {
     margin: 0 auto;
     width: 80%;
-    visibility: visible; }
-
-  h2 {
-    text-align: center; } }
+    visibility: visible; } }
 @media (min-width: 1024px) {
   .ad {
     margin-left: 14em;
@@ -192,11 +162,6 @@ body {
     text-align: center; }
 
   #main-table {
-    margin: 0 auto; }
-
-  #map {
-    height: 400px;
-    width: 50%;
     margin: 0 auto; } }
 #all-button {
   height: 4em;
@@ -217,13 +182,6 @@ body {
   font-size: 2em;
   margin-top: 2em; }
 
-form {
-  margin-left: 0em;
-  text-align: center; }
-
-p {
-  color: red; }
-
 #form-button {
   height: 4em;
   margin-top: 0.25em;
@@ -241,10 +199,8 @@ p {
 @media (min-width: 1024px) {
   #all-button {
     text-align: center; } }
-#all-buttons {
-  text-align: center;
-  margin-top: 1em;
-  outline: none; }
+.home p {
+  font-size: 1.5em; }
 
 #band-div {
   text-align: center; }
@@ -269,16 +225,6 @@ h4 {
 .divs {
   text-align: center; }
 
-.container {
-  color: white;
-  background: url(/images/blackground.jpg) no-repeat fixed;
-  padding: 1em 0 1em 2em;
-  border-radius: 10px;
-  width: 20em; }
-
-@media (min-width: 1024px) {
-  .container {
-    font-size: 1.5em; } }
 .user-form {
   text-align: center; }
 

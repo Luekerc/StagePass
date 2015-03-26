@@ -5,81 +5,30 @@ body{
 	text-align: center;
 }
 
-#band-button{
-	height: 4em;
+button{
 	text-align: center;
-	margin-top: 0.25em;
-	width: 12em;
-	font-size: 1.25em;
-	font-family: Lato;
-	color: white;
-	text-decoration: bold;
-	border-shadow: 2px 2px 2px white;
-	background: url(/images/blackground.jpg) no-repeat;
-	border-radius: 30px;
-	outline: none;
+	// height: 1.75em;
 }
 #mobile-list{
 	visibility: visible;
 	width: 15em;
 	margin: 0 auto;
 }
-.container{
-	color: white;
-	background: url(/images/blackground.jpg) no-repeat fixed;
-	padding: 1em 0 1em 2em;
-	border-radius: 10px;
-}
-// .user{
-// 	background-color: yellow;
-// 	border-radius: 5px;
-// }
+
 #search-form{
 	text-align: center;
 }
-#main-table {
-	font-family: Lato;
-	// margin: 1em 0 0 0;
-	text-align: center;
-	border: solid black 5px;
-	width: 90%;
-	border-spacing: 0;
-	border-radius: 5px;
-	visibility: hidden;
-}
-.table-head th{
-	border-right: 1px solid black;
-	border-bottom: 3px solid black;
-	padding-top: 3px;
-	background-color: black;
-	color: white;
-}
 
-.table-data td{
-	padding-top: 5px;
-	border-right: black solid 1px;
-	background-color: white;
-	text-align: center;
-	border-bottom: black solid 1px;
-}
-#search-button{
-	height: 4em;
-	margin-top: 0.25em;
-	text-align: center;
-	margin-bottom: 1em;
-	width: 12em;
-	font-size: 1.25em;
-	font-family: Lato;
-	color: white;
-	text-decoration: bold;
-	border-shadow: 2px 2px 2px 0 white;
-	background: url(/images/blackground.jpg) no-repeat;
-	border-radius: 30px;
-	outline: none;
-}
+
 #table-div{
 	visibility: hidden;
 }
+
+#map{
+	height: 400px;
+	width: 100%;
+}
+
 @media(min-width: 768px){
 	#mobile-list{
 	visibility: hidden;
@@ -94,15 +43,7 @@ body{
 	width: 80%;
 	visibility: visible;
 	}
-	h2{
-		text-align: center;
-	}
-	#band-button{
-		// text-align: center;
-	}
-	#search-form{
-		// margin-left: 20em;
-	}
+	
 }
 @media(min-width: 1024px){
 
@@ -119,12 +60,6 @@ body{
 		text-align: center;
 	}
 	#main-table {
-	margin: 0 auto;
-}
-
-#map{
-	height: 400px;
-	width: 50%;
 	margin: 0 auto;
 }
 }

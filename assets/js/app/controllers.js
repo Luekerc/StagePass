@@ -138,10 +138,10 @@ angular.module('app.controllers', ['app.services'])
 	}
 	//use a function modeled after scope.register to do a put request on the /user/userid
 	$scope.changes = function() {
-		console.log('changes');
+		console.log('change happens');
 		var changeObj = {
 				street: $scope.street,
-				city: $scope.city,
+				city: $scope.street,
 				zip: $scope.zip,
 				spacetypes: $scope.spacetypes,
 				loading: $scope.loading,
@@ -150,20 +150,12 @@ angular.module('app.controllers', ['app.services'])
 				smoking: $scope.smoking,
 				guests: $scope.guests
 			};
-		if($scope.street){
-			console.log('street to be changed');
-			$scope.profileerror='';
-			$http.put('/user/userid', changeObj.street).success(function(res){
+
+			$http.put('/user/'+ $scope.response.id, changeObj).success(function(res){
 				console.log(res);
 				$state.go('home');
-				$scope.profileerror='';
-			});
-		}
-		else{
-			console.log('no changes have been made');
-			$scope.profileerror='No changes have been made.';
-		}
-	}	
+			});	
+	}
 })
 
 .controller('LogoutCtrl', function($scope, $http, $state) {

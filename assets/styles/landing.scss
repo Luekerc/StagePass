@@ -4,11 +4,16 @@ section{
 	color:#FFFFFF;
 	font-family: LATO;
 	padding: 3em 0 0 0;
+	background: url('/images/rock-background.png') no-repeat;
+	background-color: black;
 }
 section h2{
 	font-size: 4em;
 	color: #997744;
 	margin-bottom: 0;
+}
+h1{
+	font-size: 3em;
 }
 
 .tag-line{
@@ -35,8 +40,8 @@ section h2{
 	outline: none;
 }
 h2{
-	font-family: HARD ROCK;
-	text-align: center;
+	// font-family: HARD ROCK;
+	// text-align: center;
 }
 main {
 	background-color: white;
@@ -52,9 +57,10 @@ section h2{
 	font-size: 5em;
 	color: #997744;
 }
-h2{
-	font-size: 3em;
+h1{
+	font-size: 5em;
 }
+
 .description{
 	padding-top: 1em;
 	width: 55%;
@@ -72,6 +78,9 @@ section h2{
 	font-size: 7em;
 	color: #997744;
 	padding-top: 0.5em;
+}
+h1{
+	font-size: 6em;
 }
 .tag-line{
 	font-size: 2em;

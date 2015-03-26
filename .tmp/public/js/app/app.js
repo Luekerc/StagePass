@@ -5,7 +5,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 
 	$stateProvider
 	.state('home', {
-		url: '/home',
+		url: '/',
 		templateUrl: 'templates/home.html',
 		controller: 'HomeCtrl'
 	})
@@ -34,11 +34,7 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		templateUrl: 'templates/profile.html',
 		controller: 'ProfileCtrl'
 	})
-		.state('logout', {
-		url: '/',
-		templateUrl: '/views/homepage.ejs',
-		controller: 'LogoutCtrl'
-	})
+
 		// There will be a post request to logout.  Use an ng-click, run a function to 
 // make a post request. An example is from last week.
 

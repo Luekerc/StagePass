@@ -9,47 +9,29 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
+              </button>
            </div>    
 
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
              <ul class="nav navbar-nav">
                <li><a href="#" ui-sref-active='active' ui-sref='home'>Home</a></li>
                <li><a href="#" ng-hide="isLoggedin" ui-sref-active='active' ui-sref='login'>Login</a></li>
-               <li><a href="#" ng-show="navRegister"ui-sref-active='active' ui-sref='spaceregister' ng-hide="isLoggedin">Create Profile</a></li>
+               <li><a href="#" ng-show="navRegister" ui-sref-active='active' ui-sref='spaceregister' ng-hide="isLoggedin">Create Profile</a></li>
                <li><a href="#" ui-sref-active='active' ui-sref='band'>Search</a></li>
                <li><a href="#" ng-click="logOut()" ng-show="isLoggedin">Logout</a></li>
-               <!-- <li><div id="loginName" href="#" ng-show ="isLoggedin" ng-model="userName"> Hi, {{ res.username }}!</div></li> -->
              </ul>
            </div><!-- /.navbar-collapse -->
          </div><!-- /.container-fluid -->
        </nav>
    </nav>
 
-    <section>
-        <h2>StagePass</h2>
+    <section class="hero">
+        <h1>StagePass</h1>
         <div  class='tag-line'>Don't support music...
         <div class="rock">ROCK IT!</div></div>
     </section>
 
-    <main  ui-view>
-        <h4 class="description">StagePass lets you contribute to 
-        your local music scene by connecting  
-        people who are willing to share some
-        of their extra space with bands who  
-        need a place to practice.</h4>
-       
-        <h2>Register Your Space</h2>
-            <div id="button-div">
-            <button type="button" id="all-button" href="#" ui-sref-active="active" ui-sref="spaceregister">Register
-            </button>
-            </div>
-            <br>
+    <main  class="container" ui-view>
 
-        <h2>Need a place to Practice?</h2>
-        <div id="button-div">
-        <button type="button" href="#" ui-sref-active="active" ui-sref="band" id="all-button">Search for Space!</button>
-        </div>
-
-    </main>
- 
+    </main> 
 </div>
